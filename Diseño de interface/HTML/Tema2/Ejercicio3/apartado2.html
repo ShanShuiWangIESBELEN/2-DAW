@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apartado 2</title>
+
+    <style>
+        body {
+            margin: 0;
+            text-align: center;
+            scroll-behavior: smooth;
+        }
+
+        .tiendaOnline {
+            width: 100%;
+            margin: 0 auto;
+            overflow-x: auto;
+            display: flex;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .Producto {
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            border: 1px solid red;
+            border-radius: 10px;
+            padding: 10px;
+            scroll-snap-align: start;
+        }
+
+
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tienda Online</h1>
+    <div class="tiendaOnline">
+
+        <div class="Producto" id="Producto1">
+            <img src="./fotos/avocado-7207993_1920.jpg" alt="avocado">
+            <h2>Avocado</h2>
+            <h3>$ 2.99</h3>
+        </div>
+        <div class="Producto" id="Producto2">
+            <img src="./fotos/orange-2850848_1920.png" alt="naranja">
+            <h2>Naranja</h2>
+            <h3>$ 1.99</h3>
+        </div>
+        <div class="Producto" id="Producto3">
+            <img src="./fotos/taco-5651624_1920.png" alt="tacos">
+            <h2>Tacos</h2>
+            <h3>$ 4.99</h3>
+        </div>
+    </div>
+
+</body>
+
+</html>

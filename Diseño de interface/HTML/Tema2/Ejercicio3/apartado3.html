@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apartado 3</title>
+
+    <style>
+        body {
+            margin: auto;
+            scroll-behavior: smooth;
+        }
+
+        .contenedor {
+            display: flex;
+            min-height: 100%;
+        }
+
+        .aside {
+            width: 20%;
+            background-color: antiquewhite;
+            padding: 1rem;
+        }
+
+        .aside ul {
+            list-style: none;
+        }
+
+
+        .aside ul li a {
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: cadetblue;
+            padding: 0.5rem 0;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .aside ul li a:hover {
+            color: darkcyan;
+        }
+
+        main {
+            width: 80%;
+            padding: 1rem;
+        }
+
+        .seccion {
+            padding: 2rem 0;
+            border-bottom: 1px solid black;
+        }
+
+        button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <aside class="aside">
+            <nav class="nav">
+                <ul>
+                    <li><a href="#s1">Seccion 1</a></li>
+                    <li><a href="#s2">Seccion 2</a></li>
+                    <li><a href="#s3">Seccion 3</a></li>
+                    <li><a href="#s4">Seccion 4</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main">
+
+            <section class="seccion" id="s1">
+                <h2>Seccion 1</h2>
+                <p>Contenido de la sección 1...</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero harum quidem cupiditate, maxime
+                    repudiandae dicta illo sit accusantium, non in enim architecto inventore vel consequuntur
+                    repellendus velit delectus explicabo laboriosam?Lorem ipsum dolor sit, amet consectetur adipisicing
+                    elit. Vero harum quidem cupiditate, maxime
+                    repudiandae dicta illo sit accusantium, non in enim architecto inventore vel consequuntur
+                    repellendus velit delectus explicabo laboriosam?
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero harum quidem cupiditate, maxime
+                    repudiandae dicta illo sit accusantium, non in enim architecto inventore vel consequuntur
+                    repellendus velit delectus explicabo laboriosam?</p>
+            </section>
+            <section class="seccion" id="s2">
+                <h2>Seccion 2</h2>
+                <p>Contenido de la sección 2...</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero harum quidem cupiditate, maxime
+                    repudiandae dicta illo sit accusantium, non in enim architecto inventore vel consequuntur
+                    repellendus velit delectus explicabo laboriosam?
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero harum quidem cupiditate, maxime
+                    repudiandae dicta illo sit accusantium, non in enim architecto inventore vel consequuntur
+                    repellendus velit delectus explicabo laboriosam?
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero harum quidem cupiditate, maxime
+                    repudiandae dicta illo sit accusantium, non in enim architecto inventore vel consequuntur
+                    repellendus velit delectus explicabo laboriosam?</p>
+            </section>
+            <section class="seccion" id="s3">
+                <h2>Seccion 3</h2>
+                <p>Contenido de la sección 3...</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero harum quidem cupiditate, maxime
+                    repudiandae dicta illo sit accusantium, non in enim architecto inventore vel consequuntur
+                    repellendus velit delectus explicabo laboriosam?Lorem ipsum dolor sit, amet consectetur adipisicing
+                    elit. Vero harum quidem cupiditate, maxime
+                    repudiandae dicta illo sit accusantium, non in enim architecto inventore vel consequuntur
+                    repellendus velit delectus explicabo laboriosam?Lorem ipsum dolor sit, amet consectetur adipisicing
+                    elit. Vero harum quidem cupiditate, maxime
+                    repudiandae dicta illo sit accusantium, non in enim architecto inventore vel consequuntur
+                    repellendus velit delectus explicabo laboriosam?</p>
+            </section>
+            <section class="seccion" id="s4">
+                <h2>Seccion 4</h2>
+                <p>Contenido de la sección 4...</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero harum quidem cupiditate, maxime
+                    repudiandae dicta illo sit accusantium, non in enim architecto inventore vel consequuntur
+                    repellendus velit delectus explicabo laboriosam?Lorem ipsum dolor sit, amet consectetur adipisicing
+                    elit. Vero harum quidem cupiditate, maxime
+                    repudiandae dicta illo sit accusantium, non in enim architecto inventore vel consequuntur
+                    repellendus velit delectus explicabo laboriosam?Lorem ipsum dolor sit, amet consectetur adipisicing
+                    elit. Vero harum quidem cupiditate, maxime
+                    repudiandae dicta illo sit accusantium, non in enim architecto inventore vel consequuntur
+                    repellendus velit delectus explicabo laboriosam?Lorem ipsum dolor sit, amet consectetur adipisicing
+                    elit. Vero harum quidem cupiditate, maxime
+                    repudiandae dicta illo sit accusantium, non in enim architecto inventore vel consequuntur
+                    repellendus velit delectus explicabo laboriosam?</p>
+            </section>
+
+            <button id="scrollTop" onclick="scrollToTop()">Volver arriba</button>
+
+        </main>
+
+    </div>
+
+    <script>
+        const scrollToTop = document.querySelector("#scrollTop").addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario</title>
+    </head>
+    <body>
+        <fieldset style="padding: 20px; vertical-align: top; ">
+            <legend>Datos personales</legend>
+            <form action="mailto:swan559@e.educaand.es" method="post">
+                <div
+                    style="display: inline-block; vertical-align: top; margin-right: 50px;">
+                    <label for="dni">DNI:</label>
+                    <input type="text" name="dni" id="dni" required
+                        style="width: 75px; margin-bottom: 5px;">
+                    <br>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" required
+                        style="width: 200px;margin-bottom: 5px;">
+                    <br>
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" name="apellidos" id="apellidos"
+                        required style="width: 500px;margin-bottom: 5px;">
+                    <br>
+                </div>
+                <div style="display: inline-block; vertical-align: top;">
+                    <label for="sexo">Sexo:</label>
+                    <br>
+                    <input type="radio" name="sexo" id="hombre" value="hombre">
+                    <label for="hombre">Hombre</label>
+                    <br>
+                    <input type="radio" name="sexo" id="mujer" value="mujer">
+                    <label for="mujer">Mujer</label>
+                </div>
+            </fieldset>
+
+            <fieldset style="padding: 20px; vertical-align: top;">
+                <legend>Dirección</legend>
+                <div
+                    style="display: inline-block; vertical-align: top; margin-right: 50px;  ">
+                    <label for="dirección">Calle/Avda:</label>
+                    <input type="dirección" name="dirección" id="dirección"
+                        required
+                        style="width: 500px; margin-bottom: 5px;">
+                    <br>
+                    <label for="Población">Población:</label>
+                    <input type="text" name="Población" id="Población" required
+                        style="width: 500px; margin-bottom: 5px;">
+                    <br>
+                    <label for="Provincia">Provincia:</label>
+                    <select name="Provincia" id="Provincia">
+                        <option value selected disabled hidden></option>
+                        <option value="Madrid">Madrid</option>
+                        <option value="Barcelona">Barcelona</option>
+                        <option value="Sevilla">Sevilla</option>
+                        <option value="Valencia">Valencia</option>
+                        <option value="Cordoba">Cordoba</option>
+                        <option value="Jaen">Jaen</option>
+                        <option value="Almeria">Almeria</option>
+                        <option value="Malaga">Malaga</option>
+                    </select>
+
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Practica en grupo</legend>
+                <form method="post " action="#" enctype="multipart/form-data">
+                    <input hidden id="btn"
+                        class="form-control text-center col-md-6"
+                        onChange="document.getElementById('tagsmall').innerText=document.getElementById('btn').files[0]['name'];"
+                        type="file" value="Archivo">
+
+                    <label for="personalizado">Archivo:</label>
+                    <input type="text" name="file" id="personalizado"
+                        style="width: 500px; margin-bottom: 5px;">
+                    <button id='personalizado'
+                        onClick="document.getElementById('btn').click();">Browse</button>
+                    <small id='tagsmall'></small>
+                    <br>
+                    <input type="checkbox" name="Comprimido" id="Comprimido">
+                    <label for=" Comprimido">Archivo Comprimido</label>
+                    <input type="checkbox" name="encriptado" id="encriptado">
+                    <label for=" encriptado">Archivo encriptado</label>
+
+                    <br>
+                    <label for="descripción">Descripción de la practica</label>
+                    <br>
+                    <textarea name="descripción" id="descripción" cols="100"
+                        rows="10"></textarea>
+                </fieldset>
+
+                <br>
+                <div style="display: flex; justify-content: center;">
+                    <input type="submit" value="Submit Query"
+                        style="width: 100px; height: 30px;">
+                </div>
+            </form>
+
+        </body>
+    </html>

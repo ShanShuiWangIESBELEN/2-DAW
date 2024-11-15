@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="/CSS/stylesForm.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="fotos/logo.png" alt="Logo" width="70px" height="50px">
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar...">
+        </div>
+        <div class="nav-bar">
+            <select onchange="location=this.value">
+                <option value="">Bar de navegación</option>
+                <option value="principal.html">Principal</option>
+                <option value="ciudades.html">Ciudades</option>
+                <option value="comidas.html">Comidas</option>
+                <option value="historia.html">Historia</option>
+                <option value="monumentos.html">Monumentos</option>
+                <option value="contacto.html">contacto</option>
+            </select>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Formulario de Contacto</h2>
+        <form action="#" method="post">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="Apellido">Apellido:</label>
+            <input type="text" id="Apellido" name="Apellido" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea name="mensaje" id="mensaje" cols="30" rows="5" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

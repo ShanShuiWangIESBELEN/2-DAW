@@ -1,0 +1,32 @@
+{
+  "work": [
+    {
+      "id": 1,
+      "name": "Manuel",
+      "assignment": "Data Migration",
+      "priority": "Low",
+      "dateCreation": "13/12/2023",
+      "dateCompletion": "",
+      "complete": false
+    },
+    {
+      "id": 2,
+      "name": "Pablo",
+      "assignment" : "Software Development",
+      "priority": "Mid",
+      "dateCreation": "15/12/2023",
+      "dateCompletion": "",
+      "complete": false
+    },
+    {
+      "id": 3,
+      "name": "Alvaro",
+      "assignment" : "System Integration",
+      "priority": "High",
+      "dateCreation": "17/12/2023",
+      "dateCompletion": "2/1/2024",
+      "complete": true
+    }
+
+  ]
+}

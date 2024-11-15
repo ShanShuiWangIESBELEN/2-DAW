@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    Date.prototype.toString = function(){
+
+        return "Hoy es " + this.getDay() + " " + this.getDate() + " de " + this.getMonth() + " de " + this.getFullYear();
+    }
+
+    let date = new Date();
+
+    console.log(date.toString());
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+#container {
+    width: 1000px;
+    margin: auto;
+    margin-top: 100px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#cabecera {
+    height: 50px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    background-color: aqua;
+}
+
+#pie {
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    clear: both;
+    background-color: gray;
+}
+
+#section1 {
+    width: 125px;
+    height: 300px;
+    margin-top: 50px;
+    float: left;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    background-color: blue;
+    margin-bottom: 30px;
+}
+
+#section2 {
+    width: 800px;
+    height: 300px;
+    margin-left: 50px;
+    margin-top: 50px;
+    float: right;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    background-color: aquamarine;
+    margin-bottom: 30px;
+}

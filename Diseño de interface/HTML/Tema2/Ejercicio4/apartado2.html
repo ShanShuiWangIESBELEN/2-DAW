@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apartado 2</title>
+    <style>
+        .card-shadow {
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            border: 1px solid gray;
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+
+        }
+
+        .card-gradient {
+            background: linear-gradient(to top, #3498db, #1f587d);
+            color: white;
+        }
+
+        .filtered-image {
+            filter: brightness(80%) contrast(120%);
+        }
+
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+            background-color: maroon;
+            color: white;
+            width: 120px;
+            border-radius: 6px;
+            padding: 5px;
+        }
+
+        .tooltip-text {
+            visibility: hidden;
+            width: 120px;
+            background-color: #231ca4;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card card-shadow">
+        <h3>Ejemplo de Sombra</h3>
+        <p>Esta tarjeta tiene una sombra.</p>
+    </div>
+    <div class="card card-gradient">
+        <h3>Ejemplo de Gradiente</h3>
+        <p>Este es un fondo con gradiente.</p>
+    </div>
+    <h3>Ejemplo de imagen con filtro y sin filtro</h3>
+    <img src="https://cdn-icons-png.flaticon.com/256/4193/4193347.png" alt="Imagen sin filtro">
+    <img src="https://cdn-icons-png.flaticon.com/256/4193/4193347.png" alt="Imagen con filtro" class="filtered-image">
+    <h3>Ejemplo con tooltip</h3>
+    <div class="tooltip-container">
+        <span class="tooltip-text">Mensaje del tooltip</span>
+        <p>Este elemento tiene un tooltip</p>
+    </div>
+
+</body>
+
+</html>

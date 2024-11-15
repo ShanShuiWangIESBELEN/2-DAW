@@ -1,0 +1,79 @@
+body {
+    background-color: aqua;
+}
+
+#animation {
+
+    width: 500px;
+    height: 500px;
+    
+    animation-name: myAnimation;
+
+    /*subpropiedades*/
+    animation-delay: 1s;
+    /*tiempo de retardo de la animación*/
+    
+    animation-direction:normal;
+    /*direción de la animación*/
+    
+    animation-duration:10s;
+    /*duración de la animación*/
+    
+    animation-iteration-count:infinite;
+    /*iteraciones de la animación*/
+    
+    animation-play-state:running;
+    /*pausar o reanudar la secuencia de la animación*/
+    
+    animation-timing-function: ease-in-out;
+    /*define el ritmo de la animación*/
+    
+    animation-fill-mode:forwards;
+    /*en este caso matiene los estilos del ultimo keyframe despues de finalizar*/
+    /*decide los estilos estios de un elemento antes y después de la animación*/
+}
+
+/*KEYFRAMES*/
+
+@keyframes myAnimation {
+        0% {
+          transform: rotate(0deg) scale(1);
+        }
+        25% {
+          transform: rotate(360deg) scale(1.2);
+        }
+        50% {
+          transform: rotate(360deg) scale(1);
+        }
+        75% {
+          transform: rotate(360deg) scale(1.2);
+        }
+        100% {
+          transform: rotate(360deg) scale(1);
+        }
+      
+}
+
+/*#girar{
+  animation : mymove 10s infinite;
+}
+
+@keyframes mymove {
+  
+  0%{
+    transform: rotate(0deg) scale(1);
+  }
+  25%{
+    transform: rotate(90deg) scale();
+  }
+  50%{
+    transform: rotate(180deg) scale(1.6);
+  }
+  75%{
+    transform: rotate(110deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+
+}*/

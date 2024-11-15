@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartado 1</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-rows: 2fr 1fr 0.5fr;
+            margin: 0;
+        }
+
+        .header {
+            background-color: red;
+        }
+
+        .main {
+            border: 1px dashed grey;
+        }
+
+        div.sinPunto ul li {
+            list-style-type: none;
+            display: inline;
+            background-color: green;
+            color: white;
+        }
+
+        .footer {
+            background-color: aqua;
+            border: 3px solid blue;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">Cabecera</div>
+
+    <div class="main">Principal
+        <ul>
+            <li>Esta</li>
+            <li>Lista</li>
+            <li>Normal</li>
+        </ul>
+
+        <hr>
+        <div class="sinPunto">
+            <ul>
+                <li>Esta</li>
+                <li>Tambien</li>
+                <li>Es</li>
+                <li>Una</li>
+                <li>Lista</li>
+                <li>Normal</li>
+            </ul>
+        </div>
+        <hr>
+    </div>
+    <div class="footer">Pie</div>
+
+</body>
+
+</html>

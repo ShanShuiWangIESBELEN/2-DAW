@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>La Alhambra de Granada</title>
+				<!-- <script type="text/javascript" src="archivojs.js"></script> -->
+		<style>
+			hr {
+				width: 900px;
+				margin-left: 0px;	
+			}
+			form label, form input, form textarea, from select, form button {
+				margin-bottom: 10px; 
+	
+			}
+			form textarea {
+				height: 100px;
+				width: 300px;
+			}
+
+			form button {
+				margin-right: 10px; 
+			}
+
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<div>
+					<h1>La Alhambra de Granada</h1>
+				</div>
+
+				<img src="ac.jpg" style="width: 900px; height: 500px;">
+
+				<hr>
+				<nav>
+					<a href="inicio.html">Inicio</a>
+					<a href="historia.html">Historia</a>
+					<a href="enlaces.html">Enlaces externos</a>
+					<a href="recibeform.html">Contactar con nuestra asociación</a>
+					<a href="horario.html">Horario</a>
+				</nav>
+				<hr>
+			</div>
+		</header>
+		<div class="container">
+			<section id="main">
+				<h2>Formulario para contactar con nosotros:</h2>
+				<form action="form.html" method="get">
+					<label for="nombre">Nombre:</label>
+					<input type="text" id="nombre" name="nombre" required>
+					<br>
+
+					<label for="apellidos">Apellidos:</label>
+					<input type="text" id="apellidos" name="apellidos" required>
+					<br>
+					<label for="email">Email:</label>
+					<input type="email" id="email" name="email" required>
+					<br>
+
+					<label for="sexo">Sexo:</label>
+					<br>
+
+					<input type="radio" id="hombre" name="sexo" value="hombre">
+					<label for="hombre">Hombre</label>
+					<br>
+
+					<input type="radio" id="mujer" name="sexo" value="mujer">
+					<label for="mujer">Mujer</label>
+					<br>
+
+					<label for="mensaje">Ingresa aquí tu mensaje:</label>
+					<br>
+
+					<textarea id="mensaje" name="mensaje" rows="4"
+						required>...Tus mensajes aquí...</textarea>
+					<br>
+
+					<input type="checkbox" id="publicidad" name="publicidad">
+					<label for="publicidad">Deseo recibir publicidad futura en mi dirección de
+						email.</label>
+					<br>
+
+					<label for="Procedencia">Procedencia</label>
+					<select id="procedencia" name="procedencia">
+						<option value="1">España</option>
+						<option value="2">Estado Unido</option>
+						<option value="3">Francia</option>
+						<option value="4">Italia</option>
+					</select>
+
+					<br>
+
+					<label for="archivo"> Ingresa el archivo que quieras adjuntar: </label>
+					<input type="file" id="archivo" name="archivo">
+
+					<br>
+
+					<input type="submit" value="Enviar"></input>
+					<input type="reset" value="Borrar los datos"></input>
+				</form>
+			</section>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,14 @@
+button{
+    margin-left: 600px;
+    display: block;
+}
+
+th ,td{
+    text-align: center;
+    border: 1px solid;
+}
+
+#buttons{
+    align-items: center;
+    display: inline;
+}

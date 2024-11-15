@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+        $( function() {
+            let availableTags = [
+                "Data Migration",
+                "Network Security Audit",
+                "Software Development",
+                "Database Optimization",
+                "System Integration",
+                "Cybersecurity Assessment",
+                "Cloud Infrastructure Deployment",
+                "User Interface Design",
+                "Penetration Testing",
+                "IT Infrastructure Upgrade",
+                "Mobile App Development",
+                "Network Troubleshooting",
+                "Data Backup and Recovery",
+                "Web Application Security Testing",
+                "Server Configuration",
+                "IT Policy Review",
+                "Network Performance Monitoring",
+                "System Patch Management",
+                "Virtualization Setup",
+                "IT Asset Inventory Management"
+            ];
+            $( "#assignment" ).autocomplete({
+                source: availableTags
+            });
+        } );
+    </script>
+    <title></title>
+</head>
+<body>
+
+
+<form class="custom-form">
+    <div id="form-group1">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Name" required>
+    </div>
+    <div id="form-group2" class="ui-widget">
+        <label for="assignment">Create a assignment</label>
+        <input type="text" class="form-control" id="assignment" placeholder="Task" required>
+    </div>
+    <div id="form-group3">
+        <label for="datepicker">Select date</label>
+        <input type="text" class="form-control" id="datepicker" placeholder="Date" required>
+    </div>
+    <div class="form-group">
+        <label for="datepicker">Select priority
+            <select id="priority" name="priority">
+                <option value="Low">Low</option>
+                <option value="Mid">Mid</option>
+                <option value="High">High</option>
+            </select>
+        </label>
+    </div>
+    <button class="btn-primary" type="button" id="create">Create</button>
+</form>
+<br>
+<br>
+<table class="table-container">
+    <tr>
+        <th>Name</th>
+        <th>Assignment</th>
+        <th>Priority</th>
+        <th>Date Creation</th>
+        <th>Date Completion</th>
+        <th>Actions</th>
+    </tr>
+    <tbody id="tbody">
+
+    </tbody>
+</table>
+
+<script src="script.js" ></script>
+</body>
+</html>

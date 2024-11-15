@@ -1,0 +1,32 @@
+body {
+    background-color: aqua;
+}
+
+#transform {
+
+    width: 500px;
+    height: 500px;
+    background: grey;
+    /*NOTA: cualquier transform sobreescribirá al anterior*/
+    
+    transform: rotate(3deg);
+    /*esto rotará nuestro div 3 grados hacia la derecha*/
+   
+    transform: scale(0.5);
+    /*siendo 1 el valor base y cualquier valor mayor o menor una diferencia, 
+    scale cambia el tamaño de nuestro div, lo guay es que lo mantiene centrado*/
+   
+    transform: rotate(3deg) scale(0.5) translate(10px, 20px);
+    /*translate mueve el elemento 10px en el eje [X] y 20px en el eje [Y]*/
+    /*este ejemplo permite transformar de forma distinta un mismo elemento*/
+   
+    transform: scale(0.3) rotate(50deg) translate(10px, 20px);
+    /*es MUY IMPORTANTE tener en cuenta que si cambiamos la rotación de nuestro elemento
+    aplicará tambien a la hora de moverlo, es decir, rotarlo y luego moverlo lo desplazará en diagonal*/
+   
+    transform: rotate(1deg);
+    transform-origin: 100% 100%;
+    /*en este caso, si nos fijamos, el cuadrado estará rotado desde su esquina inferior
+    izquierda, ya que en el valor "transdorm-origin, aplicamos 100% 100%, siendo los valores
+    por defecto 50% (eje Y) y 50% (eje X) */
+}

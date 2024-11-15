@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saludar</title>
+</head>
+
+<body>
+
+    <input type="text" class="input" />
+    <button type="button" class="boton">Boton</button>
+
+    <script>
+        const input = document.querySelector('.input');
+        const button = document.querySelector('.boton');
+        button.addEventListener("click", function (event) {
+            if (input.value !== "") {
+                alert(`Hola,${input.value}`);
+                input.value = "";
+            }
+        });
+        /*
+                */
+    </script>
+</body>
+
+</html>

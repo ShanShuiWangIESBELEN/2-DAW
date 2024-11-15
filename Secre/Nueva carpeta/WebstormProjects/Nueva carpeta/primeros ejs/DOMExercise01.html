@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<p>
+    PARAGRAPH 1
+    <a href="https://educacionadistancia.juntadeandalucia.es/centros/malaga/course/view.php?id=2128&section=2">Link</a>
+</p>
+
+<p>
+    PARAGRAPH 2
+    <a href="https://www.un.org/es/climatechange/raising-ambition/renewable-energy">Link</a>
+    <a href="https://www.youtube.com/">Link</a>
+</p>
+
+<p>
+    PARAGRAPH 3
+    <a href="https://blog.hubspot.es/marketing/promover-diversidad-laboral">Link</a>
+    <a href="https://www.youtube.com/">Link</a>
+</p>
+
+<script>
+
+    function numbersLinks() {
+        return document.querySelectorAll("a").length;
+    }
+
+    console.log("\nExercise1.1: " + numbersLinks() + " links");
+
+    function showPenultimateLink() {
+        let length = document.querySelectorAll("a").length;
+        return length <= 1 ? document.querySelectorAll("a").item(0).getAttribute("href")
+            : document.querySelectorAll("a").item(length - 2).getAttribute("href");
+    }
+
+    console.log("Exercise1.2: " + showPenultimateLink());
+
+    function numbersLinksInstitute() {
+        let numInstituteLinks = 0;
+        let links = document.querySelectorAll("a");
+        for (let index = 0; index < numbersLinks(); index++) {
+            if (links[index].getAttribute("href") === "https://educacionadistancia.juntadeandalucia.es/centros/malaga/course/view.php?id=2128&section=2");
+            numInstituteLinks++;
+        }
+        return numInstituteLinks;
+    }
+
+    console.log("Exercise1.3: " + numbersLinksInstitute());
+
+    function numbersLinksThirdParagrah() {
+        return document.querySelectorAll("p")[2].querySelectorAll("a").length;
+    }
+
+    console.log("Exercise1.4: " + numbersLinksThirdParagrah());
+
+</script>
+
+</body>
+</html>

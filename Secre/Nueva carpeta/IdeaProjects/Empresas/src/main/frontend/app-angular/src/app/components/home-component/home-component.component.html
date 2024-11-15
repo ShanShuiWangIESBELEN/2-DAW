@@ -1,0 +1,24 @@
+<div id="intro-div">
+  <div id="intro-wrapper">
+    <p class="arial-font">
+      <strong>Málaga, destacada joya tecnológica en la vibrante costa sur de España, impulsa la innovación empresarial. Empresas
+      malagueñas, líderes en sectores como inteligencia artificial, software y ciberseguridad, sobresalen por su
+      creatividad, compromiso y excelencia. La ciudad atrae talento, fomentando el crecimiento, la colaboración y la
+      diversidad en el ámbito tecnológico.</strong>
+    </p>
+  </div>
+</div>
+
+
+<div id="card-container" class="card-container">
+
+  <div *ngFor="let empresa of empresas" class="card" style="width: 18rem; height: 450px; margin: 15px;">
+    <img class="franja" src="assets/img/franja.1avif.avif" width="400" height="50" >
+    <div class="card-body">
+      <h5 class="card-title">{{ empresa.nombre.toUpperCase() }}</h5>
+      <p class="card-text">{{ empresa.descripcion }}</p>
+      <a href="#" routerLink="/empresa/detalle/{{ empresa.id }}" class="btn btn-primary">Ver detalles</a>
+    </div>
+    <img ngSrc="{{ empresa.imagen }}" class="card-img-top" alt="Logo de {{ empresa.nombre }}" width="100" height="180">
+  </div>
+</div>

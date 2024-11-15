@@ -1,0 +1,52 @@
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $( function() {
+      $( "#datepicker" ).datepicker();
+    } );
+  </script>
+  <title></title>
+</head>
+<body>
+
+
+
+<form class="custom-form">
+  <div class="form-group">
+    <label for="task">Create a task</label>
+    <input type="text" class="form-control" id="task" placeholder="Task" #task required>
+  </div>
+  <div class="form-group">
+    <label for="datepicker">Select date</label>
+    <input type="text" class="form-control" id="datepicker" placeholder="Date" #date required>
+  </div>
+  <button class="btn-primary" type="button" (click)="create(task.value, date.value)">Create</button>
+</form>
+<br>
+<br>
+<table class="table-container">
+  <tr>
+    <th>Name</th><th>Priority</th><th>Date Creation</th><th>Date Completion</th>
+  </tr>
+  <tr *ngFor="let t of tasks">
+    <td>{{ t.taskName }}</td>
+    <td>{{ t.priority }}</td>
+    <td>{{ t.dateCreation }}</td>
+    <td>{{ t.dateCompletion}}</td>
+    <button type="button" (click)="eliminateTask(t)">Eliminate Task</button>
+  </tr>
+</table>
+
+<button type="button" (click)="eliminateAllComplete()">Eliminate All Task Complete</button>
+
+</body>
+</html>

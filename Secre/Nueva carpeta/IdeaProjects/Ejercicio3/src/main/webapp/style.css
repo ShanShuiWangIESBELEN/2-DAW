@@ -1,0 +1,99 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 2em;
+
+}
+
+#contenedor {
+    height: auto;
+    width: 30em;
+    margin-left: 30em;
+    border: aquamarine solid 1em;
+    border-radius: 5%;
+}
+
+h1 {
+    font-family: "Arial Black", serif;
+    margin-left: 5em;
+    font-size: 30px;
+
+}
+
+label {
+    font-family: "Arial Black", serif;
+    font-size: 12px;
+}
+
+.boton-enviar {
+    width: 12em;
+    margin-left: 10em;
+    margin-bottom: 1em;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.boton-enviar:hover {
+    background-color: #45a049;
+}
+
+.boton-enviar:active {
+    background-color: #3e8e41;
+}
+
+.boton-borrar {
+    width: 12em;
+    margin-left: 10em;
+    margin-bottom: 1em;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.boton-borrar:hover {
+    background-color: #0b7dda;
+}
+
+.boton-borrar:active {
+    background-color: #3e8e41;
+}
+
+.boton-mostrar {
+    width: 12em;
+    margin-left: 10em;
+    margin-bottom: 1em;
+    padding: 10px 20px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.boton-mostrar:hover {
+    background-color: #ff9800;
+}
+
+.boton-mostrar:active {
+    background-color:#e68a00;
+}
+
+#aficiones {
+    margin-left: 8em;
+    width: 23em;
+    height: 5em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: space-between;
+}

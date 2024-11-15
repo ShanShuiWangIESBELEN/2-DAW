@@ -1,0 +1,158 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle Comercial</title>
+    <style>
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .min-pedido{
+            background-color: yellow;
+        }
+
+        .max-pedido{
+            background-color: green;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="contenedora" style="float:none; margin: 0 auto;width: 900px;">
+    <div class="clearfix">
+        <div style="float: left; width: 50%">
+            <h1>Detalle Comercial</h1>
+        </div>
+        <div style="float: none;width: auto;overflow: hidden;min-height: 80px;position: relative;">
+
+            <div style="position: absolute; left: 39%; top : 39%;">
+
+                <form action="/comercial">
+                    <input type="submit" value="Volver"/>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="clearfix">
+        <hr/>
+    </div>
+    <div th:object="${comercial}">
+    <div style="margin-top: 6px;" class="clearfix">
+        <div style="float: left;width: 50%">
+            <label>Id</label>
+        </div>
+        <div style="float: none;width: auto;overflow: hidden;">
+            <input th:value="${comercial.id}" value="Id" readonly="readonly"/>
+        </div>
+    </div>
+    <div style="margin-top: 6px;" class="clearfix">
+        <div style="float: left;width: 50%">
+            <label>Nombre</label>
+        </div>
+        <div style="float: none;width: auto;overflow: hidden;">
+            <input th:value="${comercial.nombre}" value="Nombre" readonly="readonly"/>
+        </div>
+    </div>
+    <div style="margin-top: 6px;" class="clearfix">
+        <div style="float: left;width: 50%">
+            <label>Primer Apellido</label>
+        </div>
+        <div style="float: none;width: auto;overflow: hidden;">
+            <input th:value="${comercial.apellido1}" value="Apellido1" readonly="readonly"/>
+        </div>
+    </div>
+    <div style="margin-top: 6px;" class="clearfix">
+        <div style="float: left;width: 50%">
+            <label>Segundo Apellido</label>
+        </div>
+        <div style="float: none;width: auto;overflow: hidden;">
+            <input th:value="${comercial.apellido2}" value="Apellido2" readonly="readonly"/>
+        </div>
+    </div>
+    <div style="margin-top: 6px;" class="clearfix">
+        <div style="float: left;width: 50%">
+            <label>Comision</label>
+        </div>
+        <div style="float: none;width: auto;overflow: hidden;">
+            <input th:value="${comercial.comision}" value="Comision" readonly="readonly"/>
+        </div>
+    </div>
+    <div style="margin-top: 6px;" class="clearfix">
+        <div style="float: left;width: 50%">
+            <label>Media Pedidos Coste</label>
+        </div>
+        <div style="float: none;width: auto;overflow: hidden;">
+            <input th:value="${comercial.mediaPedidosCoste}" value="Comision" readonly="readonly"/>
+        </div>
+    </div>
+    <div style="margin-top: 6px;" class="clearfix">
+        <div style="float: left;width: 50%">
+            <label>Total Pedidos</label>
+        </div>
+        <div style="float: none;width: auto;overflow: hidden;">
+            <input th:value="${comercial.totalPedidos}" value="Comision" readonly="readonly"/>
+        </div>
+    </div>
+    <div style="margin-top: 6px;" class="clearfix">
+        <div style="float: left;width: 50%">
+            <label>Total Pedidos Coste</label>
+        </div>
+        <div style="float: none;width: auto;overflow: hidden;">
+            <input th:value="${comercial.totalPedidosCoste}" value="Comision" readonly="readonly"/>
+        </div>
+    </div>
+
+    <div style="float: left; margin-top: 50px">
+        <div style="float: left;width: 50%">
+            <label><h1>Pedidos</h1></label>
+        </div>
+        <table style="width: 100%;border-collapse: collapse;margin-bottom: 20px;">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Total</th>
+                <th>Clientes</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="pedido : ${comercial.listaPedidos}"
+                th:class="${pedido.total == min} ? 'min-pedido' : (${pedido.total == max} ? 'max-pedido' : '')">
+
+                    <td th:text="${pedido.id}"></td>
+                    <td th:text="${pedido.fecha}"></td>
+                    <td th:text="${pedido.total}"></td>
+                    <td><a th:href="@{'/clientes/' + ${pedido.id_cliente}}" target="_blank"
+                           th:text="${pedido.nombreCliente}"></a></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<header>
+    <nav>
+        <ul>
+            <li><a href="${pageContext.request.contextPath}">Home</a>&emsp;</li>
+            <li><a href="${pageContext.request.contextPath}/tienda/pala/">Palas</a>&emsp;</li>
+
+        </ul>
+    </nav>
+</header>
+</html>
+
+<style>
+    li {
+        display: inline;
+
+    }
+
+    nav ul li {
+        line-height: 60px;
+    }
+
+    header{
+        background-color: orange;
+        height: 65px;
+        width: 100%;
+        border: 1px solid orange;
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
+
+    }
+
+    .CerrarSesion{
+        text-decoration: none;
+        display: inline;
+    }
+
+</style>

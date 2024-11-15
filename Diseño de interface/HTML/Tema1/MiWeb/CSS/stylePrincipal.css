@@ -1,0 +1,63 @@
+     header {
+         margin-top: 50px;
+         margin-bottom: 20px;
+     }
+
+     .container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+     }
+
+     body {
+         background-image: url("/fotos/back.jpg");
+         background-size: cover;
+         background-repeat: no-repeat;
+         background-attachment: scroll;
+     }
+
+     header nav {
+         text-align: right;
+         padding: 40px;
+         background-color: transparent;
+         background: linear-gradient(30deg, rgba(92, 140, 148, 0.5) 35%, rgba(245, 235, 226, 0.4) 63%);
+     }
+
+     header nav a {
+         color: black;
+         font-size: 25px;
+         margin-left: 40px;
+         text-decoration: none;
+
+     }
+
+     header div.contenido-header {
+         text-align: center;
+         padding: 50px;
+         padding-bottom: 200px;
+     }
+
+     header div.contenido-header h1 {
+         color: white;
+         font-size: 150px;
+         margin: 70px 0 0 0;
+
+     }
+
+     header div.contenido-header:hover h1 {
+         transition: all 0.5s ease-in-out;
+         color: rgba(171, 206, 182, 255)
+     }
+
+     header div.contenido-header hr {
+         display: flex;
+         border: 1px solid rgb(65, 185, 221);
+         margin: 0 400px 20px 400px;
+     }
+
+     header div.contenido-header h2 {
+         color: white;
+         font-weight: normal;
+         font-size: 25px;
+         margin-bottom: 70px;
+     }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+
+    <div class="box">123</div>
+
+    <div class="box">ABC</div>
+
+    <p id="nav">Barra de navegacion</p>
+
+
+    <ul class="nav">
+        <li>我的首页</li>
+        <li>产品介绍</li>
+        <li>联系方式</li>
+    </ul>
+
+
+    <script>
+        // 获取DOM元素
+        //获取匹配的第一个元素
+        // 2. document.querySelector()
+
+
+        /* const box = document.querySelector(`div`)  //必须加引号 */
+        /*  const box = document.querySelector(`.box`) //必须加引号 */
+        /*     console.dir(box); */
+
+
+        /*     const nav = document.querySelector('p')
+            const nav = document.querySelector('#nav')
+            console.log(nav); */
+
+        /*        const li = document.querySelector('ul li:first-child')
+               console.log(li);
+        */
+
+        // 获取匹配的所有元素
+
+        /*  const lis = document.querySelectorAll('ul li')
+         //数组的形式  伪数组 不能用pop() push()这种数组方法，想要得到里面的每一个对象需要用for循环
+         console.log(lis); */
+
+        /*  lis.style.color = 'red'  不可以因为是数组不能一下子改变所有的*/
+
+        /*        const nav = document.querySelector('#nav')
+               nav.style.color = 'red'
+        */
+
+
+        //querySelectorAll 会以伪数组的方式返回 不能用pop() push()这种数组方法，想要得到里面的每一个对象需要用for循环
+        //1.获取元素
+        const lis = document.querySelectorAll('.nav li')
+
+        //2.遍历
+        for (let i = 0; i < lis.length; i++) {
+            console.dir(lis[i]);
+        }
+
+    </script>
+</body>
+
+</html>

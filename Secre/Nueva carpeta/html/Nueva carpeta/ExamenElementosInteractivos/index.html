@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+  <style>
+    .containerAll {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      height: 100vh;
+      align-items: center;
+      gap: 2em;
+    }
+
+    .bottomButtons {
+      display: flex;
+      gap: 5em;
+    }
+
+    .bottomButtons button {
+      border-radius: 50%;
+      background-color: black;
+      width: 50px;
+      height: 50px;
+      color: white;
+      text-align: center;
+    }
+
+
+    .containerButtons i {
+      font-size: 3em;
+    }
+
+    .containerButtons {
+      display: flex;
+      gap: 3em;
+    }
+
+    .animationImg {
+      transition: filter 1s ease;
+      animation-name: desplace;
+      animation-duration: 2s;
+      animation-timing-function: ease;
+    }
+
+    img:hover {
+      filter: blur(3px);
+    }
+
+    @keyframes desplace {
+      0% {
+        transform: translate(-100px);
+      }
+      100% {
+        transform: translate(0px);
+      }
+    }
+
+    #content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #content h1 {
+      font-size: 3em;
+    }
+
+    #content p {
+      width: 1000px;
+      word-wrap: break-word;
+    }
+  </style>
+
+
+
+
+  <section class="containerAll">
+
+    <article id="content">
+      <h1>About hera</h1>
+      <p>
+        hfhfasadfjhdfvjhdfvjhsadfjhafvjhsadfvhjasdfadvfvjhasdfjavjdfvjhadfvjdsavvagsdvjdfgvjgadfgvvgadfgvdfvgadfkghdfghadfvkhdfhvdfgvdfvhsadfgvahsdfhsdfgvasdfgvdfgvadfgvkdhsfvgfavgvsadfvhavgfvhsafvwaeyeywfe
+      </p>
+    </article>
+    <article class="containerButtons">
+      <button id="atras"><i class="fa-solid fa-left-long"></i></button>
+      <img id="img" src="img/hera.avif" alt="" srcset="">
+      <button id="alante"><i class="fa-solid fa-right-long"></i></button>
+    </article>
+
+    <article class="bottomButtons">
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+    </article>
+
+  </section>
+
+  <script>
+    const allImages =
+      [
+        {
+          name: "zeus",
+          info: "hfhfasadfjhdfvjhdfvjhsadfjhafvjhsadfvhjasdfadvfvjhasdfjavjdfvjhadfvjdsavvagsdvjdfgvjgadfgvvgadfgvdfvgadfkghdfghadfvkhdfhvdfgvdfvhsadfgvahsdfhsdfgvasdfgvdfgvadfgvkdhsfvgfavgvsadfvhavgfvhsafvwaeyeywfe",
+          url: "img/zeus.jpg",
+        },
+        {
+          name: "hera",
+          info: "hfhfasadfjhdfvjhdfvjhsadfjhafvjhsadfvhjasdfadvfvjhasdfjavjdfvjhadfvjdsavvagsdvjdfgvjgadfgvvgadfgvdfvgadfkghdfghadfvkhdfhvdfgvdfvhsadfgvahsdfhsdfgvasdfgvdfgvadfgvkdhsfvgfavgvsadfvhavgfvhsafvwaeyeywfe",
+          url: "img/hera.avif"
+        },
+        {
+          name: "hercules",
+          info: "hfhfasadfjhdfvjhdfvjhsadfjhafvjhsadfvhjasdfadvfvjhasdfjavjdfvjhadfvjdsavvagsdvjdfgvjgadfgvvgadfgvdfvgadfkghdfghadfvkhdfhvdfgvdfvhsadfgvahsdfhsdfgvasdfgvdfgvadfgvkdhsfvgfavgvsadfvhavgfvhsafvwaeyeywfe",
+          url: "img/hercules.jpg"
+        },
+        {
+          name: "poseidon",
+          url: "img/poseidon.jpg",
+          info: "hfhfasadfjhdfvjhdfvjhsadfjhafvjhsadfvhjasdfadvfvjhasdfjavjdfvjhadfvjdsavvagsdvjdfgvjgadfgvvgadfgvdfvgadfkghdfghadfvkhdfhvdfgvdfvhsadfgvahsdfhsdfgvasdfgvdfgvadfgvkdhsfvgfavgvsadfvhavgfvhsafvwaeyeywfe",
+
+        }
+      ]
+
+    const buttonAtras = document.getElementById("atras")
+    const buttonAlante = document.getElementById("alante")
+    const img = document.getElementById("img")
+    const buttomBottoms = Array.from(document.querySelector(".bottomButtons").children)
+    const content = document.getElementById("content")
+
+    buttonAtras.onclick = () => {
+      const exists = allImages.findIndex(a => img.getAttribute("src").includes(a.name))
+      const index = exists - 1
+
+      buttonAlante.removeAttribute("disabled", "")
+
+      if (index < 0) {
+        buttonAtras.setAttribute("disabled", "")
+        return;
+      }
+
+      const imgDetras = allImages[index];
+
+      content.innerHTML = `
+            <h1>About ${imgDetras.name}</h1>
+            <p>${imgDetras.info}</p>
+          `
+
+
+      img.setAttribute("src", imgDetras.url)
+      img.classList.contains("animationImg") ? img.classList.remove("animationImg") : img.classList.add("animationImg")
+
+    }
+
+    buttonAlante.onclick = () => {
+      let exists = allImages.findIndex(a => img.getAttribute("src").includes(a.name))
+      let index = exists + 1
+      buttonAtras.removeAttribute("disabled", "")
+
+      if (index == allImages.length) {
+        buttonAlante.setAttribute("disabled", "")
+        return;
+      }
+
+      const imgAlante = allImages[index];
+      content.innerHTML = `
+            <h1> About ${imgAlante.name}</h1>
+            <p>${imgAlante.info}</p>
+          `
+
+      img.setAttribute("src", imgAlante.url)
+      img.classList.contains("animationImg") ? img.classList.remove("animationImg") :       img.classList.add("animationImg")
+    }
+
+    buttomBottoms.forEach(button => {
+      button.onclick = () => {
+        const indexButton = Array.from(buttomBottoms).findIndex(b => b == button)
+        const newImage = allImages[indexButton]
+        img.setAttribute("src", newImage.url)
+      }
+    })
+
+
+  </script>
+  <script src="https://kit.fontawesome.com/0d6cc8454f.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

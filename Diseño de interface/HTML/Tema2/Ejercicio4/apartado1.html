@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apartado 1</title>
+    <style>
+        @media (min-width: 1200px) {
+            .ciclos {
+                float: left;
+                width: 30%;
+            }
+
+            .cursos {
+                float: left;
+                width: 33%;
+            }
+
+            .cursos li Strong {
+                color: rgb(190, 94, 190);
+            }
+
+
+            .estudiar {
+                float: left;
+                width: 33%;
+            }
+
+            .estudiar li Strong {
+                color: rgb(190, 94, 190);
+            }
+        }
+
+        @media (min-width: 600px) and (max-width: 1199px) {
+            .ciclos {
+                float: left;
+                width: 30%;
+            }
+
+            .ciclos ul {
+                list-style: none;
+                margin: 10px;
+
+            }
+
+            .ciclos ul Strong {
+                display: block;
+            }
+
+            .cursos {
+                float: right;
+                width: 50%;
+            }
+
+            .cursos ul Strong {
+                color: rgb(190, 94, 190);
+            }
+
+            .estudiar {
+                float: right;
+                width: 50%;
+            }
+
+            .estudiar ul Strong {
+                text-decoration: underline;
+                color: rgb(190, 94, 190);
+            }
+        }
+
+        @media (max-width:599px) {
+            .ciclos h2 {
+                border-bottom: 2px solid black;
+            }
+
+            .cursos h2 {
+                border-top: 2px solid black;
+            }
+
+            .estudiar h2 {
+                border-top: 2px solid black;
+            }
+
+            .cursos li Strong {
+                color: rgb(190, 94, 190);
+            }
+
+            .estudiar li Strong {
+                color: rgb(190, 94, 190);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Formación Profesional en Informática y Comunicaciones</h1>
+    <div class="ciclos">
+        <h2>Ciclos formativos</h2>
+        <ul>
+            <li><strong>FPB </strong>Informática de Oficina </li>
+            <li><strong>FPB </strong>Informática y Comunicaciones</li>
+            <li><strong>GM </strong>Sistemas Microinformáticos y Redes</li>
+            <li><strong>GS </strong>Administración de Sistemas Informáticos en Red </li>
+            <li><strong>GS </strong>Desarrollo de Aplicaciones Multiplataforma </li>
+            <li><strong>GS </strong>Desarrollo de Aplicaciones Web</li>
+        </ul>
+    </div>
+
+    <div class="cursos">
+        <h2>Cursos avanzados</h2>
+        <ul>
+            <li><strong>Curso de especialización:</strong> Inteligencia Artificial y Big Data</li>
+            <li><strong>Curso de especialización:</strong> Desarrollo de videojuegos y realidad virtual</li>
+            <li><strong>Curso de especialización:</strong> Ciberseguridad en Entornos de las Tecnologías de la
+                Información
+            </li>
+        </ul>
+    </div>
+    <div class="estudiar">
+        <h2>Cómo estudiar</h2>
+        <ul>
+            <li><strong>Modalidad presencial:</strong> se estudia en los centros educativos, con la asistencia regular a
+                clase.
+            </li>
+            <li><strong>Modalidad a distancia:</strong> se estudia con comodidad desde cualquier lugar y los exámenes se
+                realizan presencialmente.</li>
+            <li><strong>Pruebas libres:</strong> vía alternativa para obtener las titulaciones sin necesidad de cursar
+                los
+                ciclos formativos.</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

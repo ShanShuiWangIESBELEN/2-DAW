@@ -1,0 +1,69 @@
+#olas{
+    width: 1800px; 
+    height: 1100px;
+    position: absolute;
+    animation: movimiento 2.5s infinite; 
+    /* El nombre de la animacion es movimiento los segundos es la duracion y el infinite hace que la animacion se haga en bucle*/
+}
+
+#barco{
+    margin-left: 500px;
+    position: absolute;
+    animation: movimiento2 10s infinite;
+     /* El nombre de la animacion es movimiento2 los segundos es la duracion y el infinite hace que la animacion se haga en bucle*/
+}
+
+
+@keyframes movimiento {
+    /*Con esto el movimiento de las olas va y viene*/
+    0%{
+        transform: translate(0%);
+    }
+    
+    100%{
+        transform: translate(5%);
+    }
+
+}
+
+@keyframes movimiento2 {
+   /* Los translate hace que el barco valla de izq a der, los rotate hace que el barco se incline y 
+   con el margin top logramos que el barco suba y baje */
+    0%{
+        transform: translate(100%) rotateY(10deg);
+        margin-top: 50px;
+    }
+    12.5%{
+        transform: translate(75%) rotateZ(8deg);
+        margin-top: 0px;
+    }
+    25%{
+        transform: translate(50%) rotateZ(0deg);
+        margin-top: 50px;
+    }
+    37.5%{
+        transform: translate(25%) rotateZ(8deg);
+        margin-top: 0px;
+    }
+    50%{
+        transform: translate(0%) rotateZ(0deg);
+        margin-top: 50px;
+    }
+    62.5%{
+        transform: translate(-25%) rotateZ(8deg);
+        margin-top: 0px;
+    }
+    75%{
+        transform: translate(-50%) rotateZ(0deg);
+        margin-top: 50px;
+    }
+    87.5%{
+        transform: translate(-75%) rotateZ(8deg);
+        margin-top: 0px;
+    }
+    100%{
+        transform: translate(-100%) rotateZ(0deg);
+        margin-top: 50px;
+    }
+
+}

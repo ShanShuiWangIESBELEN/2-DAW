@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 200px;
+            height: 200px;
+        }
+
+        td {
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button onclick="addRowAtStart()">Add row at start</button>
+        <button onclick="addRowAtEnd()">Add row at end</button>
+        <button onclick="addColAtStart()">Add column at start</button>
+        <button onclick="addColAtEnd()">Add column at end</button>
+    </div>
+
+    <script>
+        function getRandom(N, M) {
+            return Math.floor(Math.random() * (M - N + 1)) + N
+        }
+
+        const numeroRandom = getRandom(1, 10);
+
+        //funcion para crear la tabla 
+        function createTable() {
+            const table = document.createElement('table');
+            table.id = 'reyTable';
+            table.style.border = '1px solid black';
+            for (let i = 0; i < numeroRandom; i++) {
+                const tr = document.createElement('tr');
+                for (let j = 0; j < numeroRandom; j++) {
+                    const td = document.createElement('td');
+                    td.style.border = '1px solid black';
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+
+            document.body.appendChild(table);
+        }
+
+        createTable();
+
+        //funcion para agregar
+        function addRowAtStart() {
+            const table = document.querySelector('#reyTable');
+            const newRow = table.insertRow(0);
+            for (let i = 0; i < table.rows[1].cells.length; i++) {
+                const cell = newRow.insertCell(i);
+                cell.style.border = '1px solid red';
+            }
+        }
+
+        function addRowAtEnd() {
+            const table = document.querySelector('#reyTable');
+            const newRow = table.insertRow();
+            for (let i = 0; i < table.rows[0].cells.length; i++) {
+                const cell = newRow.insertCell(i);
+                cell.style.border = '1px solid red';
+            }
+        }
+
+        function addColAtStart() {
+            const table = document.querySelector('#reyTable');
+            for (let i = 0; i < table.rows.length; i++) {
+                const cell = table.rows[i].insertCell(0);
+                cell.style.border = '1px solid red';
+            }
+        }
+
+        function addColAtEnd() {
+            const table = document.querySelector('#reyTable');
+            for (let i = 0; i < table.rows.length; i++) {
+                const cell = table.rows[i].insertCell(-1);
+                cell.style.border = '1px solid red';
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

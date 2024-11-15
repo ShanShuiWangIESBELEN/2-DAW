@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#carrusel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+#right, #left{
+    border-radius: 15px;
+    height: 50px;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    text-align: center;
+}
+#imgs{
+    overflow: hidden;
+    max-width: 500px;
+    max-height: 500px;
+}
+.animationR{
+    margin-right:500px;
+    animation: slideR 0.3s;
+}
+@keyframes slideR {
+	0% { transform: translateX(100%); }
+}
+.animationL{
+    margin-right:500px;
+    animation: slideL 0.5s;
+}
+
+@keyframes slideL {
+	0% { transform: translateX(-100%); }
+}

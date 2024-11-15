@@ -1,0 +1,116 @@
+#container {
+    width: 1000px;
+    margin: auto;
+    margin-top: 100px;
+    
+}
+
+#cabecera {
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#buscar{
+    text-align: right;
+}
+
+#section1{
+    height: 700px;
+    width: 200px;
+    margin-top: 5px;
+    float: left;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#section2{
+    height: 600px;
+    width:570px;
+    float: left;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#section3{
+    height: 500px;
+    width: 200px;
+    float: right;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#sectionTotal{
+    height: 600px;
+    width:785px;
+    margin-top: 5px;
+    margin-left: 215px;
+    float: none;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#footer{
+    height: 50px;
+    margin-top: 140px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    clear: both;
+    text-align: left;
+}
+
+#copy{
+    margin-left: 550px;
+}
+
+#foto{
+    width: 150px;
+    height: 150px;
+    margin-left: 20px;
+    float: left;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    background-color: gray;
+}
+
+#textoFoto1{
+    margin-left: 180px;
+}
+
+#foto2{
+    width: 150px;
+    height: 150px;
+    margin-left: 20px;
+    float: left;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    background-color: gray;
+
+}
+
+#textoFoto2 {
+    margin-left: 180px;
+}
+
+#titulo{
+    margin-left: 20px;
+}
+
+#texto{
+    margin-left: 20px;
+}
+
+#tituloSeccion1{
+    margin-left: 10px;
+}
+
+#textoSeccion1{
+    margin-left: 10px;
+}

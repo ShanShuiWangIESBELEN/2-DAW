@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- node.append(...nodes or strings) – insert into node, at the end,
+        node.prepend(...nodes or strings) – insert into node, at the beginning,
+        node.before(...nodes or strings) –- insert right before node,
+        node.after(...nodes or strings) –- insert right after node,
+        node.replaceWith(...nodes or strings) –- replace node.
+        node.remove() –- remove the node. -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector('ul');
+
+        ul.before('before');
+        ul.after('after');
+
+        let LiFirst = document.createElement('li');
+        LiFirst.innerHTML = 'Prepend';
+        ul.prepend(LiFirst);
+
+        let LiLast = document.createElement('li');
+        LiLast.innerHTML = 'append';
+        ul.append(LiLast);
+
+    </script>
+
+</body>
+
+</html>

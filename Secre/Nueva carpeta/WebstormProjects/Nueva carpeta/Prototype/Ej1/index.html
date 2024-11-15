@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    function MyObject (name) {
+        this.name = name;
+    }
+    MyObject.prototype.toString = function() {
+        return "MyObject: " + this.name;
+    };
+    const myobject = new MyObject("Example");
+    console.log(myobject.toString());
+
+    String.prototype.repeat = function (number){
+        let cadena = "";
+        if (number > 0){
+            for(i = 1; i <= number; i++){
+                cadena += this + " q pasa genio \n";
+            }
+        }else{
+            cadena = "Eres moncho";
+        }
+        return cadena;
+    }
+
+    console.log("Hola".repeat(3))
+    console.log("Hola".repeat(-3))
+</script>
+</body>
+</html>

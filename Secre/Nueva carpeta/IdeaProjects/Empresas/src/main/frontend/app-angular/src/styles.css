@@ -1,0 +1,16 @@
+#footer{
+  background: rgb(70, 130, 180);
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+body{
+  background-image: url('assets/img/letras.jpg');
+}

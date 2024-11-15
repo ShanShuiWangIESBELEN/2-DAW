@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog</title>
+</head>
+<style>
+#alert-dialog::backdrop{/*definimos un estilo al background del alert*/
+    background: linear-gradient(#000d, #000a);
+}
+</style>
+<body>
+    <dialog open style="top: 120px;">
+        <p>este dialogo estará abierto por defecto</p>
+    </dialog>
+
+    <dialog id="alert-dialog"> <!--ahora no estará abierto por defecto-->
+        <p>Esto es un ejemplo de mensaje de diálogo.</p>
+        <button onClick="this.parentElement.close()">Aceptar</button> <!--boton para cerrar-->
+      </dialog>
+      
+      <button id="show-button">Mostrar diálogo</button><!--podremos pulsar el boton para abrirlo-->
+
+</body>
+<script>
+    document.querySelector("#show-button").addEventListener("click", ()=>{
+        //document.querySelector("#alert-dialog").show(); si lo abrimos asi el usuario podrá interactuar con otras cosas en la página
+        document.querySelector("#alert-dialog").showModal(); //mientras que si llamamos a esta funcion, no
+    })
+</script>
+</html>

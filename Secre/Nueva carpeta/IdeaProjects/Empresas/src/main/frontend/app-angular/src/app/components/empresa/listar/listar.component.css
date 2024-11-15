@@ -1,0 +1,136 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(200, 230, 256);
+}
+
+.container {
+  max-width: 80%;
+  margin: 50px auto;
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.p-3 {
+  padding: 1rem;
+}
+
+.rounded {
+  border-radius: 5px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.alert-danger {
+  background-color: rgb(200, 230, 256);
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  margin-top: 20px;
+  background-color: rgb(230, 240, 255);
+}
+
+th, td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.custom-bg-primary {
+  background-color: transparent;
+  color: #333;
+}
+
+.custom-bg-danger {
+  background-color: rgb(70, 130, 180);
+  color: white;
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-success {
+  background-color: rgb(70, 130, 180);
+  color: white;
+}
+
+.btn-outline-secondary {
+  background-color: rgb(200, 230, 256);
+  border: 1px solid rgb(200, 230, 256);
+  color: black;
+  width: 88px;
+  margin-left: 10px;
+}
+
+.btn-outline-danger {
+  background-color: lightcoral;
+  border: 1px solid lightcoral;
+  color: black;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.input-group{
+  width: 40%;
+}
+
+.enlace-par{
+  color: white;
+}
+
+a{
+  text-decoration: none;
+}
+
+.copiar:hover{
+  color: rgb(70, 130, 180);
+  cursor: url('/assets/img/iconoCopiarr.jpg'), pointer;;
+}

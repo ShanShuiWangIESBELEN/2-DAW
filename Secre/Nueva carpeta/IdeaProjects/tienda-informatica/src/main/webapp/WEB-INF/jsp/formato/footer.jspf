@@ -1,0 +1,19 @@
+<html>
+<footer>
+
+</footer>
+</html>
+
+<style>
+
+    footer{
+        background-color: aqua;
+        height: 75px;
+        width: 100%;
+        border: 1px solid aqua;
+        position: fixed;
+        bottom: 0;
+        margin: 0 auto;
+    }
+
+</style>
