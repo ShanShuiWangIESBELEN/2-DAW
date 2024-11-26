@@ -1,0 +1,63 @@
+body {
+    background-color: #f3f4f6;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.contenedor_principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.tarjeta {
+    width: 500px;
+    height: 300px;
+    margin: 50px;
+    background: linear-gradient(to right, gold, #ffc107);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+div p {
+    font-size: 14px;
+    color: #666;
+}
+
+.contenedor_form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+}
+
+.fila {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.cardNumber {
+    background-color: #f3f4f6;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #1976D2;
+}

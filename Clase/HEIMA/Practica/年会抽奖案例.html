@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>年会抽奖</title>
+</head>
+
+<body>
+
+    <div class="pantalla">
+        <Strong>山水公司年会抽奖</Strong>
+        <h1>一等奖:<span id="one">???</span></h1>
+        <h3>二等奖:<span id="two">???</span></h3>
+        <h5>三等奖:<span id="three">???</span></h5>
+    </div>
+
+
+
+    <script>
+        const personArr = ['王山水', '吴思思', '李荣浩', '林俊杰', '周杰伦'];
+
+        const primero = Math.floor(Math.random() * personArr.length);
+        const one = document.querySelector('#one');
+        one.innerHTML = personArr[primero];
+        personArr.splice(primero, 1)
+
+        const two = document.querySelector('#two');
+        const segundo = Math.floor(Math.random() * personArr.length);
+        two.innerHTML = personArr[segundo];
+        personArr.splice(segundo, 1);
+
+        const three = document.querySelector('#three');
+        const tercero = Math.floor(Math.random() * personArr.length);
+        three.innerHTML = personArr[tercero];
+        personArr.splice(tercero, 1);
+    </script>
+
+</body>
+
+</html>
