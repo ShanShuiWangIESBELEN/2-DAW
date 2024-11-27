@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .caja {
+        @apply w-[450PX] h-[50px] bg-green-400 place-content-center rounded-lg text-red-500 font-bold border-2 border-green-600 text-4xl grid
+    }
+}

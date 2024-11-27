@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1 class="text-3xl font-bold underline text-center text-celeste/25">
+        Shanshui Wang
+    </h1>
+    <h2
+        class="text-4xl font-bold text-indigo-600 mt-10 text-center bg-gradient-to-r from-celeste to-green border-red-500 border-2">
+        Mucho gusto Japon, soy Nagi Sheshiro
+    </h2>
+
+    <img src="../img/images.jfif" alt="nagi" class="mt-5 mx-auto rounded-3xl">
+
+
+    <form action="" class="bg-yellow-400 w-80 mx-auto mt-8 rounde-lg p-6">
+        <!-- Nombre -->
+        <input class="border border-gray-300 w-full px-3 py-2 mb-4 rounded-md disabled:bg-red-200 " type="text"
+            placeholder="Nombre" disabled>
+
+        <!-- Correo -->
+        <input type="email" class="border border-gray-300 w-full px-3 py-2 mb-4 rounded-md focus:outline-none focus:ring-4 
+            focus:ring-purple-600 invalid:focus:ring-red-400 peer" placeholder="Correo">
+        <p class="text-red-500  hidden peer-invalid:block">El correo no es valido</p>
+
+        <!-- Contraseña -->
+        <input type="password" class="border border-gray-300 w-full px-3 py-2 mb-4 mt-4 rounded-md"
+            placeholder="Contraseña">
+        <!-- Boton -->
+        <input type="submit" class="bg-blue-500 w-full py-2 text-white rounded-md cursor-pointer hover:bg-blue-300"
+            value="Ingresar">
+    </form>
+    <div class="w-full text-center mt-10">
+        <button class="bg-red-500 w-32 p-3 rounded-md relative after:content-[''] after:absolute after:left-32 
+    after:border-8 after:border-transparent after:border-l-red-500 after:top-4">
+            A rellenar:
+        </button>
+    </div>
+    <input type="file"
+        class="file:bg-violet file:border-0 file-rounded-lg file:text-violet-700 file:font-semibold file:px-3 hover:file:bg-violet-300"
+        placeholder="Fichero">
+
+
+    <p class="mt-4 text-2xl selection:bg-green-500 selection:text-white first-line:uppercase first-line:tracking-widest first-letter:text-8xl
+            first-letter:font-bold first-letter:mr-3 first-letter:float-start">Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Porro eveniet eaque cupiditate, molestiae ipsa veritatis, itaque commodi recusandae ratione
+        alias consequatur placeat eum rerum ut repellat nihil. Magnam, placeat illo.
+    </p>
+
+
+    <h2 class="text-3xl font-bold text-center text-celeste/25 m-10">
+        Cambio de tamaño
+    </h2>
+    <h3 class="text-3xl font-bold text-center text-celeste/25 m-10">
+        Flex
+    </h3>
+    <div class="flex place-content-around flex-col mt-4 h-[600px] bg-rose-500 rounded-xl">
+        <div class="caja basic-1/5 self-end">1</div>
+        <div class="caja basic-1/5 self-center">2</div>
+        <div class="caja basic-1/5 ">3</div>
+    </div>
+    <h2 class="text-3xl font-bold text-center text-celeste/25 m-10">
+        Grid
+    </h2>
+    <div class="grid grid-cols-4 gap-4 mt-4 h-[600px] border-orange-400 rounded-xl">
+        <div class="caja col-span2">1</div>
+        <div class="caja row-span2">2</div>
+        <div class="caja">3</div>
+        <div class="caja">4</div>
+        <div class="caja">5</div>
+        <div class="caja">6</div>
+    </div>
+</body>
+
+</html>
