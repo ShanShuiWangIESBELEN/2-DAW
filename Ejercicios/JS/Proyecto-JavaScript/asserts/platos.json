@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "nombre": "Tacos",
+        "precio": 8.5,
+        "categoria": "Principal",
+        "disponible": true,
+        "restauranteId": 2
+    },
+    {
+        "id": 2,
+        "nombre": "Ensalada César",
+        "precio": 6.0,
+        "categoria": "Entrada",
+        "disponible": false,
+        "restauranteId": 2
+    },
+    {
+        "id": 3,
+        "Nombre": "Arroz de tres delicias",
+        "precio": 10.0,
+        "categoria": "Principal",
+        "disponible": true,
+        "restauranteId": 1
+    },
+    {
+        "id": 4,
+        "nombre": "Sopa de Tomate",
+        "precio": 5.99,
+        "categoria": "Entrada",
+        "disponible": true,
+        "restauranteId": 1
+    },
+    {
+        "id": 5,
+        "nombre": "Pizza Margarita",
+        "precio": 9.99,
+        "categoria": "Principal",
+        "disponible": false,
+        "restauranteId": 1
+    },
+    {
+        "id": 6,
+        "nombre": "Helado de Chocolate",
+        "precio": 3.50,
+        "categoria": "Postre",
+        "disponible": true,
+        "restauranteId": 2
+    }
+]

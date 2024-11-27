@@ -1,9 +1,8 @@
-class Empresa {
+export class Restaurante {
     constructor(id, nombre, direccion) {
         this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
-        this.empleadsos = [];
-
+        this.platos = [];
     }
 }

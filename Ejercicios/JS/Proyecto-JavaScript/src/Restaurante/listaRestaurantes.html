@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Restaurantes</title>
+</head>
+
+<body>
+    <h1>Restaurantes</h1>
+    <a href="crearRestaurante.html">Crear Restaurante</a>
+    <ul id="lista-restaurantes"></ul>
+    <script type="module">
+        import { RestauranteController } from './restauranteController.js';
+
+        const controller = new RestauranteController();
+        await controller.cargarDatosIniciales();
+        const restaurantes = controller.obtenerRestaurantes();
+        const lista = document.getElementById('lista-restaurantes');
+
+        restaurantes.forEach(restaurante => {
+            const item = document.createElement('li');
+            item.textContent = `${restaurante.nombre} - ${restaurante.direccion}`;
+            lista.appendChild(item);
+        });
+    </script>
+</body>
+
+</html>

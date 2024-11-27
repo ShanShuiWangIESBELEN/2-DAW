@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "nombre": "La casa de Chinos",
+        "direccion": "Calle 123"
+    },
+    {
+        "id": 2,
+        "nombre": "El Sabor Mexicano",
+        "direccion": "Avenida 456"
+    }
+]
