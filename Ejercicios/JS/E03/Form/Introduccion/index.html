@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formu</title>
+    <link rel="stylesheet" href="formu.css">
+</head>
+
+<body>
+
+    <div id="form">
+
+        <form id="myForm">
+            <h1>Formulario</h1>
+
+            <label for="username">Usuario:</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="pwd">Password:</label><br>
+            <input type="password" id="pwd" name="pwd" required><br><br>
+            <label for="gender">Género:</label>
+            <input type="radio" id="male" name="gender" value="hombre">
+            <label for="male">Hombre</label>
+            <input type="radio" id="female" name="gender" value="mujer">
+            <label for="female">Mujer</label><br><br>
+            <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Comenta algo..."
+                required></textarea><br><br><br>
+            <label for="nacionalidad">Nacionalidad:</label>
+            <select name="nacionalidad" id="nacionalidad" required>
+                <option value="" disabled selected>Selecciona tu nacionalidad</option>
+                <option value="argentina">Argentina</option>
+                <option value="brasil">Brasil</option>
+                <option value="chile">Chile</option>
+                <option value="españa">España</option>
+                <option value="francia">Francia</option>
+                <option value="alemania">Alemania</option>
+            </select>
+            <br><br>
+
+            <label for="colorFavorito">Color favorito:</label>
+            <input list="color" id="colorFavorito" name="colorFavorito" />
+
+            <datalist id="color">
+                <option value="Rojo"></option>
+                <option value="Azul"></option>
+                <option value="Blanco"></option>
+                <option value="Negro"></option>
+                <option value="Verde"></option>
+            </datalist>
+
+            <br><br>
+
+            <input type="submit" value="Submit" id="submitButton">
+            <input type="reset" value="Reset" id="resetButton">
+
+        </form>
+    </div>
+    <div id="result"></div>
+
+    <script>
+        const submitButton = document.querySelector('#submitButton');
+
+        submitButton.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const nombre = document.querySelector('#username').value;
+            const password = document.querySelector('#pwd').value;
+            const gender = document.querySelector('input[name="gender"]:checked')?.value || 'No especificado';
+            const comment = document.querySelector('#comment').value;
+            const nacionalidad = document.querySelector('#nacionalidad').value;
+            const color = document.querySelector('#colorFavorito').value;
+
+            const resultHTML = `
+                <h3>Información del Usuario</h3>
+                <p><strong>Usuario:</strong> ${nombre}</p>
+                <p><strong>Password:</strong> ${password}</p>
+                <p><strong>Género:</strong> ${gender}</p>
+                <p><strong>Comentario:</strong> ${comment}</p>
+                <p><strong>Nacionalidad:</strong> ${nacionalidad}</p>
+                <p><strong>Color Favorito:</strong> ${color}</p>`;
+
+            document.querySelector('#result').innerHTML = resultHTML;
+        });
+    </script>
+</body>
+
+</html>
