@@ -1,41 +1,46 @@
-import { Restaurante } from './Restaurante.js';
-
-export class RestauranteController {
-    constructor() {
-        this.restaurantes = [];
+const restaurantes = [
+    {
+        "id": 1,
+        "nombre": "BambuHouse",
+        "direccion": "Calle 123, Aentrada",
+        "platos": 2
+    },
+    {
+        "id": 2,
+        "nombre": "MExicanFlavor",
+        "direccion": "Avenida 456, Toronto",
+        "platos": 2
+    },
+    {
+        "id": 3,
+        "nombre": "MafiaItalian",
+        "direccion": "Calle 789, New York",
+        "platos": 1
     }
+];
 
-    /* cargar json, que no se como funciona por ahora */
-    async cargarDatosIniciales() {
-        const response = await fetch('../../assets/restaurantes.json');
-        this.restaurantes = await response.json();
-    }
+const restaurantesList = document.querySelector(".restaurantes-list");
 
-    crearRestaurante(nombre, direccion) {
-        const id = this.restaurantes.length + 1;
-        const nuevoRestaurante = new Restaurante(id, nombre, direccion);
-        this.restaurantes.push(nuevoRestaurante);
-        return nuevoRestaurante;
-    }
+const mostrarRestaurantes = () => {
+    restaurantesList.innerHTML = "";
 
-    obtenerRestaurantes() {
-        return this.restaurantes;
-    }
-    editarRestaurante(id, nombre, direccion) {
-        const restaurante = this.restaurantes.find(r => r.id === id);
-        if (restaurante) {
-            restaurante.nombre = nombre;    
-            restaurante.direccion = direccion;
-        }
-    }
+    restaurantes.forEach(restaurante => {
+        const card = document.createElement("div");
+        card.classList.add("card");
 
-
-    eliminarRestaurante(id) {
-        const restaurante = this.restaurantes.find(r => r.id === id);
-        if (restaurante.platos.length > 0) {
-            throw new Error('No se puede eliminar un restaurante con platos asociados.');
-        }
-        this.restaurantes = this.restaurantes.filter(r => r.id !== id);
-    }
+        card.innerHTML = `
+        <h2>${restaurante.nombre}</h2>
+        <p><strong>Dirección:</strong> ${restaurante.direccion}</p>
+        <p><strong>Número de Platos:</strong> ${restaurante.platos}</p>
+        <div class="btn-container">
+            <button class="edit-btn"><a href="./editarRestaurante.html">Editar</a></button>
+            <button class="delete-btn">Eliminar</button>
+        </div>
+        `;
+        restaurantesList.appendChild(card);
+    });
 }
 
+mostrarRestaurantes();
+
+/* Las fimcionalidades desarrollaré mas adelantes */

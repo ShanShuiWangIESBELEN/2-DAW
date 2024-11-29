@@ -1,0 +1,149 @@
+/* Estilos generales */
+main {
+    flex-direction: column;
+    padding: 10px 0;
+    color: whitesmoke;
+    background-image: url('../../img/paraPlatos/Cocina2.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+main h1 {
+    text-align: center;
+    font-weight: lighter;
+}
+
+/* Botón de creación */
+.create-btn {
+    margin: auto;
+    width: 120px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid gold;
+    border-radius: 15px;
+    background-color: darkseagreen;
+}
+
+.create-btn a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #1E201E;
+    font-weight: bold;
+}
+
+/* Lista de elementos (Platos o Restaurantes) */
+.platos-list {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+    color: black;
+}
+
+/* Tarjeta */
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    width: 295px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255);
+}
+
+.card h2 {
+    text-align: center;
+    font-size: 28px;
+    margin: 0;
+}
+
+.card p {
+    margin: 5px 0;
+}
+
+/* Botones dentro de la tarjeta */
+.card .btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card button {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.card .edit-btn {
+    background-color: darkgoldenrod;
+}
+
+.card a {
+    color: white;
+    text-decoration: none;
+}
+
+.card .edit-btn:hover {
+    background-color: rgba(215, 179, 88, 0.844);
+}
+
+.card .delete-btn {
+    background-color: #d4172a;
+    color: white;
+}
+
+
+.card .delete-btn:hover {
+    background-color: rgba(167, 29, 42, 0.844);
+}
+
+/* Formulario para crear o editar */
+.create-form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    background-color: rgb(210, 210, 210);
+    border: 2px solid gold;
+    border-radius: 25px;
+    padding: 20px 20px 0 20px;
+    color: #1E201E;
+}
+
+.create-form div {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.create-form label {
+    font-weight: bold;
+}
+
+.create-form input,
+select,
+option {
+    border: 1px solid gold;
+    border-radius: 10px;
+    padding: 7.5px;
+    color: #1E201E;
+    font-weight: bold;
+    outline: none;
+}
+
+.create-form input[type=number] {
+    width: 100px;
+}
+
+.create-form button {
+    margin-top: 20px;
+}

@@ -1,0 +1,153 @@
+/* Estilo General */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5deb3;
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+}
+
+/* HEADER */
+header {
+    grid-row: 1 / 2;
+    background-color: green;
+    padding: 20px 0;
+    text-align: center;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header .titulo {
+    font-size: 40px;
+    margin: 0;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav li {
+    display: inline;
+}
+
+nav a {
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #FFD700;
+    color: #1E201E;
+    border-radius: 10px;
+}
+
+/* MAIN */
+main {
+    /* no me funciona tuve que buscar otra forma  background-color: rgba(0, 0, 0, 0.4); */
+    grid-row: 2 / 3;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url(../img/fondo.webp);
+    background-size: cover;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: whitesmoke;
+}
+
+
+main p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 800px;
+
+
+}
+
+main table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+main td {
+    padding: 10px;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.numRestaurantes,
+.numPlatos {
+    font-size: 25px;
+    font-weight: bold;
+    color: gold;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    margin-top: 30px;
+
+}
+
+.logos img {
+    height: 150px;
+    transition: transform 0.3s ease;
+    border-radius: 50%;
+}
+
+.logos img:hover {
+    transform: scale(1.1);
+}
+
+.restauranteLogo {
+    transition: transform 0.3s ease;
+    border-radius: 50%;
+}
+    /* FOOTER */
+    footer {
+        grid-row: 3 / 4;
+        background-color: green;
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: whitesmoke;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    footer h2 {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    footer a img {
+        width: 100px;
+        transition: transform 0.3s ease;
+    }
+
+    footer a img:hover {
+        transform: scale(1.2);
+    }

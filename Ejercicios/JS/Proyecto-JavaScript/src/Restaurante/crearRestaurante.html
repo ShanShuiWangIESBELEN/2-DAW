@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Restaurante</title>
+</head>
+
+<body>
+    <h1>Crear Restaurante</h1>
+    <form id="formulario-crear-restaurante">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required><br>
+
+        <button type="submit">Crear</button>
+
+    </form>
+
+    <script>
+        import { RestauranteController } from './restauranteController.js';
+        import restaurantes from '../../asserts/restaurantes.js';
+
+        const RestauranteController = new RestauranteController();
+        restauranteController.cargarRestaurantes(restaurantes);
+
+        const formulario = document.getElementById('formulario-crear-restaurante');
+        formulario.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const direccion = document.getElementById('direccion').value;
+
+            // Asignar automaticamente en el base de datos
+            const nuevoId = restauranteController.listarRestaurantes().length + 1;
+
+            // Crear nuevo restaurante
+            const nuevoRestaurante = { id: nuevoId, nombre, direccion, activo: true };
+            restauranteController.agregarRestaurante(nuevoRestaurante);
+
+            alert('Restaurante creado con éxito');
+            form.reset();
+        });
+    </script>
+</body>
+
+</html>

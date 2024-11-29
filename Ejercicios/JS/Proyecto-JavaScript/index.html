@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <header>
+            <h1 class="titulo">Gestión de Restaurantes y Platos</h1>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./src/restaurante/listaRestaurantes.html">Restaurantes</a></li>
+                    <li><a href="./src/plato/listaPlatos.html">Platos</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div>
+                <p>
+                    Bienvenido a nuestro sistema de gestión de restaurantes y platos. Aquí puedes explorar los
+                    restaurantes disponibles, los platos que ofrecen
+                    y gestionar nuevos elementos para personalizar la experiencia culinaria. ¡Descubre y crea un menú
+                    inolvidable!
+                </p>
+                <table>
+                    <tr>
+                        <td>Restaurantes activos en el sistema: </td>
+                        <td class="numRestaurantes">-</td> <!-- Se calculará dinámicamente desde JSON -->
+                    </tr>
+                    <tr>
+                        <td>Platos disponibles actualmente:</td>
+                        <td class="numPlatos">-</td> <!-- Se calculará dinámicamente desde JSON -->
+                    </tr>
+                </table>
+            </div>
+            <div class="logos">
+                <img class="restauranteLogo" src="./img/logos/logoRestaurant.webp" alt="Logo de un Restaurante"
+                    height="200px">
+                <img class="platoLogo" src="./img/logos/logoPlato.webp" alt="Logo de un Plato" height="200px">
+                <img class="chefLogo" src="./img/logos/logoChef.jpg" alt="Logo de Chef" height="200px">
+            </div>
+        </main>
+
+        <footer>
+            <h2>Gestión de Restaurantes y Platos</h2>
+            <h2>Desarrollado por Shanshui Wang</h2>
+            <a href="./index.html"><img class="restauranteLogo" src="./img/logos/logoRestaurant.webp"
+                    alt="Logo para volver al inicio"></a>
+        </footer>
+    </div>
+</body>
+
+</html>
