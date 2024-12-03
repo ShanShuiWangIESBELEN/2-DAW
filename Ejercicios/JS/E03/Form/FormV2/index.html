@@ -11,143 +11,112 @@
 <body>
     <div class="contenedor_principal">
         <div class="tarjeta">
-
+            <div class="result"></div>
         </div>
         <div class="contenedor_form">
-
             <p>Start typing in here to take over and try it out</p>
             <form id="myForm">
                 <!-- Fila 1: Número de tarjeta y nombre -->
                 <div class="fila">
-                    <input type="text" id="cardNumber" class="input" placeholder="0000-0000-0000-0000" />
-                    <input type="text" id="cardName" class="input" placeholder="Name" />
+                    <input type="text" id="card" class="input" placeholder="0000 0000 0000 0000" />
+                    <div id="cardError" class="error-message"></div> <!-- Error para tarjeta -->
+                    <input type="text" id="name" class="input" placeholder="Name" />
+                    <div id="nameError" class="error-message"></div> <!-- Error para nombre -->
                 </div>
                 <!-- Fila 2: CVV, Fecha, y Botón -->
                 <div class="fila2">
-                    <input type="text" id="cardDate" class="input" placeholder="MM/YY" />
-                    <input type="text" id="cardCvv" class="input" placeholder="CVV" />
+                    <input type="text" id="expiration" class="input" placeholder="MM/YY" />
+                    <div id="expirationError" class="error-message"></div> <!-- Error para fecha -->
+                    <input type="text" id="csv" class="input" placeholder="CVV" />
+                    <div id="csvError" class="error-message"></div> <!-- Error para CVV -->
                     <button type="submit">Submit</button>
                 </div>
             </form>
         </div>
-
     </div>
 
     <script>
-        /* Validation: 
-        Making use of regular expressions create functions to validate the fields listed below
-        Name: must contain at least a first name and a last name, minimum 7 characters.*/
-        const form = document.querySelector('#myForm');
-        const name = document.querySelector('#cardName');
-        const number = document.querySelector('#cardNumber');
-        const date = document.querySelector('#cardDate');
-        const cvv = document.querySelector('#cardCvv');
-
-        function validName() {
-            const nameValid = name.value.trim();
-            const regex = /^[a-zA-Z]+ [a-zA-Z]+$/;
-            if (!regex.test(nameValid) || nameValid.length < 7) {
-                alert('Error: Name must include at least a first and last name, minimum 7 characters.');
-                return false;
-            }
-            return true;
+        const validations = {
+            "amount": {
+                keyPress: /\d|\./,                          // Permite números y el punto decimal.
+                pattern: /[1-9]\d+(\.\d{2})?/               // El patrón valida cantidades como "12", "123.45" (monto).
+            },
+            "card": {
+                keyPress: /\d/,                             // Solo se permiten números.
+                pattern: /\d{4}\s\d{4}\s\d{4}\s\d{4}/,      // El patrón requiere que el número de tarjeta tenga el formato de 16 dígitos divididos por espacios.
+                max: 19,                                    // Longitud máxima permitida para el campo (contando los espacios).
+                autocomplete: function (event) {
+                    if (!["deleteContentBackward", "deleteContentForward"].includes(event.inputType) &&
+                        [4, 9, 14].includes(event.target.value.length)) {
+                        event.target.value += " ";
+                    }
+                }
+            },
+            "name": {
+                keyPress: /[A-Za-z]|\s/,
+                pattern: /[A-Za-z]{3,}\s[A-Za-z]{3,}/,
+            },
+            "expiration": {
+                keyPress: /\d|\//,                              // Permite números y el carácter "/".
+                pattern: /(0[1-9]|1[0-2])\/\d{2}/,              // El patrón valida una fecha en formato MM/AA (mes/año).
+                max: 5,                                          // Longitud máxima (3 caracteres para el mes + 1 para "/").
+                autocomplete: function (event) {
+                    if (!["deleteContentBackward", "deleteContentForward"].includes(event.inputType) &&
+                        event.target.value.length == 2) {
+                        event.target.value += "/";
+                    }
+                }
+            },
+            "csv": {
+                keyPress: /\d/,
+                pattern: /\d{3}/,
+                max: 3
+            },
         }
 
-        function validNumber() {
-            const numberValid = number.value.replace(/\s+/g, '');
-            const regex = /^[0-9]{16}$/;
-            if (!regex.test(numberValid)) {
-                alert('Error numero, inserte de nuevo');
-                return false;
+        const keyValidation = (event) => {
+            const val = validations[event.target.id];
+
+            if (!val.keyPress.test(event.target.value[event.target.value.length - 1]) ||
+                (val.max && (event.target.value.length > val.max))) {
+                event.target.value = event.target.value.slice(0, -1);
+            }
+
+            if (val.autocomplete) {
+                val.autocomplete(event);
             }
         }
 
-        function validDate() {
-            const dateValid = date.value.trim();
-            const regex = /^(0[1-9]|1[0-2])\/([0-9]{2})$/;
-            if (!regex.test(dateValid)) {
-                alert('Error fecha, inserte de nuevo');
-                return false;
+        const patternValidation = (event) => {
+            const val = validations[event.target.id];
+            let div = document.querySelector("#" + event.target.id + "Error");
+
+            if (!val.pattern.test(event.target.value) ||
+                ((event.target.id == "expiration") && !checkExpirationDate(event.target.value))) {
+                event.target.classList.remove("is-valid");
+                event.target.classList.add("is-invalid");
+                div.textContent = "Invalid input!";
+            } else {
+                event.target.classList.remove("is-invalid");
+                event.target.classList.add("is-valid");
+                div.textContent = ""; // Limpia mensaje de error
             }
-            const [month, year] = dateValid.split('/').map(Number);
-            const expiration = new Date(`20${year}`, month - 1);
-            if (expiration <= new Date()) {
-                alert('Error: Card has expired.');
-                return false;
-            }
-            return true;
         }
 
+        const checkExpirationDate = (value) => {
+            let fecha = value.split("/");
+            const today = new Date();
+            let valid = true;
 
-        function validCvv() {
-            const cvvValid = cvv.value.trim();
-            const regex = /^[0-9]{3}$/;
-            if (!regex.test(cvvValid)) {
-                alert('Error cvv, inserte de nuevo');
-                return false;
-            }
-            return true;
+            if (fecha[0] < 1 || fecha[0] > 12) { valid = false; }
+            if (fecha[1] <= (today.getYear() - 100) && fecha[0] < (today.getMonth() + 1)) { valid = false; }
+            return valid;
         }
 
-        /* Events:
-        - Highlight the active input field.
-        - Name: when exiting it will be capitalized.
-        - Credit Card number: every 4 numbers put a space, automatically.
-        - Expiration date: after two numbers add /, automatically.
-        - Amount: when exiting it will change the decimal separator, if it is ',', by '.'.
-        If it does not have any decimals, put '.' and two 00. */
-
-
-        const inputs = document.querySelectorAll('.input');
-
-        inputs.forEach(input => {
-            input.addEventListener('focus', () => {
-                input.classList.add('active');
-            });
-
-            input.addEventListener('blur', () => {
-                input.classList.remove('active');
-            });
-
-        });
-
-        name.addEventListener('input', () => {
-            const words = name.value.trim().split(' ');
-            name.value = words.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-        });
-
-        number.addEventListener('input', () => {
-            let formatted = number.value.replace(/\s+/g, '');
-            formatted = formatted.replace(/[^0-9]/g, '');
-            formatted = formatted.match(/.{1,4}/g)?.join(' ') || '';
-            number.value = formatted;
-        });
-
-        date.addEventListener('input', () => {
-            let dateValue = date.value.replace(/[^0-9]/g, '');
-            if (dateValue.length > 2) {
-                dateValue = dateValue.slice(0, 2) + '/' + dateValue.slice(2, 4);
-            }
-            date.value = dateValue;
-        });
-
-        cvv.addEventListener('input', () => {
-            const cvvValue = cvv.value.replace(/[^0-9]/g, '');
-            cvv.value = cvvValue;
-        });
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            if (validName() && validNumber() && validDate() && validCvv()) {
-                alert('Formulario enviado correctamente.');
-                form.reset();
-            }
-        });
-
-
-
-
-
+        document.querySelectorAll("input").forEach((input) => {
+            input.addEventListener("input", keyValidation);
+            input.addEventListener("blur", patternValidation);
+        })
     </script>
 </body>
 

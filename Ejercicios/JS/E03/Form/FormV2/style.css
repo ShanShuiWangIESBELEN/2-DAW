@@ -61,3 +61,16 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #1976D2;
 }
+
+.is-valid {
+    border-color: green;
+}
+
+.is-invalid {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+}
