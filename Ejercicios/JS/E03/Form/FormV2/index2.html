@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Búsqueda Avanzada de Películas</title>
+</head>
+<body>
+  <h1>Búsqueda Avanzada de Películas</h1>
+
+  <form id="searchForm">
+    <!-- Géneros -->
+    <fieldset>
+      <legend>Géneros</legend>
+      <input type="checkbox" id="allGenders" onchange="toggleAllGenders()"> All genders<br>
+      <div id="genresContainer"></div>
+    </fieldset>
+
+    <!-- Países -->
+    <fieldset>
+      <legend>Países</legend>
+      <select id="countriesSelect">
+      </select>
+    </fieldset>
+
+    <!-- Años -->
+    <fieldset>
+      <legend>Años</legend>
+      <select id="yearSelect">
+      </select>
+    </fieldset>
+
+    <button type="submit">Buscar</button>
+  </form>
+
+  <script src="filtrospelis.js"></script>
+  <script>
+    // Inicialización de controles
+    const genres = [...genders].sort(); // Ordenar alfabéticamente
+    const countries = [...countries];
+
+    // Cargar géneros
+    const genresContainer = document.getElementById('genresContainer');
+    genres.forEach(genre => {
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.value = genre;
+      checkbox.name = 'genres';
+      checkbox.onchange = updateAllGendersCheckbox;
+      genresContainer.appendChild(checkbox);
+      genresContainer.innerHTML += ` ${genre}<br>`;
+    });
+
+    // Función para "All genders"
+    function toggleAllGenders() {
+      const allGendersChecked = document.getElementById('allGenders').checked;
+      document.querySelectorAll('input[name="genres"]').forEach(cb => cb.checked = allGendersChecked);
+    }
+
+    function updateAllGendersCheckbox() {
+      const allChecked = [...document.querySelectorAll('input[name="genres"]')].every(cb => cb.checked);
+      document.getElementById('allGenders').checked = allChecked;
+    }
+
+    // Cargar países
+    const countriesSelect = document.getElementById('countriesSelect');
+    countries.forEach(country => {
+      const option = document.createElement('option');
+      option.value = country;
+      option.textContent = country;
+      countriesSelect.appendChild(option);
+    });
+
+    // Cargar años dinámicamente
+    const yearSelect = document.getElementById('yearSelect');
+    const currentYear = new Date().getFullYear();
+    for (let year = 2000; year <= currentYear; year++) {
+      const option = document.createElement('option');
+      option.value = year;
+      option.textContent = year;
+      yearSelect.appendChild(option);
+    }
+  </script>
+</body>
+</html>

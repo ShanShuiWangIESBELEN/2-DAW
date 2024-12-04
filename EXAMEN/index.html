@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peliculas</title>
+    <style>
+        .salida{
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .salida img{
+            width: 100px;
+            margin: 10px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div>
+        <h1>Create by Shanshui Wang</h1>
+    </div>
+    <div class="contenedor_form">
+        <form>
+            <fieldset>
+                <p><b>ADVANCED SEARCH</b>(in all selected fields)</p>
+                <br>
+                <label for="texto">Text:</label><br>
+                <input type="text" name="text" id="text" required>
+                <br>
+                <input type="checkbox" name="title" id="title">
+                <label for="title">Title</label>
+                <input type="checkbox" name="director" id="director">
+                <label for="director">Director</label>
+                <input type="checkbox" name="actor" id="actor">
+                <label for="actor">Actor</label><br>
+
+                <label for="country">Country:</label>
+                <br>
+                <select name="countriesSelect" id="countriesSelect">
+                    <option value="">All countries</option>
+                    <!-- Aqui se muestra los paises cargado del js -->
+                </select>
+                <br>
+                <label for="gender">Gender</label>
+                <br>
+                <input type="checkbox" name="all" id="allGenders" onchange="selectAllGender()">
+                <label for="all">All genders</label>&nbsp;
+                <div id="genderMovies">
+                </div>
+                <label for="year">Year:form</label>
+                <select name="inicio" id="inicio">
+                    <option value="">----</option>
+                </select>
+                <span>to</span>
+                <select name="fin" id="fin">
+                    <option value="">----</option>
+                </select>
+                <br>
+
+                <button type="submit" onclick="seachMovies()">Find</button>
+
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="result"></div>
+
+    <script src="filtrospelis.js"></script>
+    <script src="pelisList.js"></script>
+    <script>
+
+        /* Para añadir paises en el select */
+        const fillSelect = () => {
+            const select = document.querySelector("#countriesSelect");
+
+            countries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country;
+                option.textContent = country;
+                countriesSelect.appendChild(option);
+            });
+        }
+        // Para añadir géneros en el contenedor
+        const fillGenders = () => {
+            const genresContainer = document.querySelector('#genderMovies');
+            genders.forEach(genre => {
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.value = genre;
+                checkbox.name = 'genres';
+                checkbox.id = `genre_${genre}`;
+                checkbox.onchange = updateAllGenders;
+                genresContainer.appendChild(checkbox);
+                genresContainer.innerHTML += ` ${genre}&nbsp;`;
+            });
+        }
+
+        function selectAllGender() {
+            const allGendersChecked = document.querySelector('#allGenders').checked;
+            document.querySelectorAll('#genderMovies input[type="checkbox"]').forEach(elem => elem.checked = allGendersChecked);
+        }
+
+        function updateAllGenders() {
+            const allChecked = [...document.querySelectorAll('#genderMovies input[type="checkbox"]')].every(elem => elem.checked);
+            document.querySelector('#allGenders').checked = allChecked;
+        }
+
+
+        /* Para Años*/
+        const fillYear = () => {
+            const inicio = document.querySelector('#inicio');
+            const fin = document.querySelector('#fin');
+            const currentYear = new Date().getFullYear();
+            for (let year = 2000; year <= currentYear; year++) {
+                const optionInicio = document.createElement('option');
+                optionInicio.value = year;
+                optionInicio.textContent = year;
+                inicio.appendChild(optionInicio);
+                const optionFin = document.createElement('option');
+                optionFin.value = year;
+                optionFin.textContent = year;
+                fin.appendChild(optionFin);
+            }
+        }
+
+
+
+        function seachMovies() {
+            const search = document.querySelector('.result');
+            search.innerHTML = '';
+
+            const selectedGenres = [];
+            const checkboxes = document.querySelectorAll('input[name="genres"]:checked');
+            for (let i = 0; i < checkboxes.length; i++) {
+                selectedGenres.push(checkboxes[i].value);
+            }
+            const selectedCountry = document.querySelector('#countriesSelect').value;
+            const yearStart = parseInt(document.querySelector('#inicio').value) || 2000;
+            const yearEnd = parseInt(document.querySelector('#fin').value) || new Date().getFullYear();
+
+            const text = document.querySelector('#text').value.toLowerCase();
+
+            const filteredMovies = pelis.filter(movie => {
+                const validateText = !text || movie.Title.toLowerCase().includes(text);
+                const validateGenre = selectedGenres.length === 0 || selectedGenres.some(genre => movie.Genre.includes(genre));
+                const validateCountry = !selectedCountry || movie.Country.includes(selectedCountry);
+                const validateYear = movie.Year >= yearStart && movie.Year <= yearEnd;
+
+                return validateText && validateGenre && validateCountry && validateYear;
+            });
+            if (filteredMovies.length === 0) {
+                search.innerHTML = '<p>No movies found matching.</p>';
+            } else {
+                filteredMovies.forEach(movie => {
+                    search.innerHTML += `
+                        <div class="salida">
+                            <h2>${movie.Title}</h2>
+                            <img src="${movie.Images[0]}" alt="${movie.Title}">
+                            <div>
+                                <p><b>Genre:</b> ${movie.Genre}</p>
+                            </div>
+                        </div>`;
+                });
+            }
+        }
+
+        /* Me busca pero me aparece en un momento y se va. */
+
+
+        fillSelect();
+        fillGenders();
+        fillYear();
+    </script>
+
+</body>
+
+</html>
