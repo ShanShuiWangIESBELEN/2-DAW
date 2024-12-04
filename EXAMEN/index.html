@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peliculas</title>
     <style>
-        .salida{
+        .salida {
             border: 1px solid #ccc;
             padding: 10px;
             margin: 10px 0;
         }
-        .salida img{
+
+        .salida img {
             width: 100px;
             margin: 10px;
         }
@@ -48,7 +49,8 @@
                 <br>
                 <label for="gender">Gender</label>
                 <br>
-                <input type="checkbox" name="all" id="allGenders" onchange="selectAllGender()">
+                <!-- <input type="checkbox" name="all" id="allGenders" onchange="selectAllGender()"> --no deberia usar onchange sino un addEventListener -->
+                <input type="checkbox" name="all" id="allGenders">
                 <label for="all">All genders</label>&nbsp;
                 <div id="genderMovies">
                 </div>
@@ -62,7 +64,11 @@
                 </select>
                 <br>
 
-                <button type="submit" onclick="seachMovies()">Find</button>
+                <!-- <button type="submit" onclick="seachMovies()">Find</button> 
+                  no deberia usar onclick sino un addEventListener, en principio era para chequear rapido la busqueda pero se me olvido cambiarla -->
+
+                <button type="submit" id="button">Find</button>
+
 
             </fieldset>
         </form>
@@ -94,22 +100,33 @@
                 checkbox.value = genre;
                 checkbox.name = 'genres';
                 checkbox.id = `genre_${genre}`;
-                checkbox.onchange = updateAllGenders;
+                /*  checkbox.onchange = updateAllGenders;  Esta mal usar onchange */
+                checkbox.addEventListener('change', updateAllGenders); /* AddEventListener */
+
                 genresContainer.appendChild(checkbox);
                 genresContainer.innerHTML += ` ${genre}&nbsp;`;
             });
         }
 
+         /* version Correcta con addEventListener */
+        document.addEventListener('DOMContentLoaded', () => {
+            fillGenders();
+            // Agregar evento al checkbox de "All genders"
+            document.querySelector('#allGenders').addEventListener('change', selectAllGender);
+        });
+
+       
         function selectAllGender() {
             const allGendersChecked = document.querySelector('#allGenders').checked;
-            document.querySelectorAll('#genderMovies input[type="checkbox"]').forEach(elem => elem.checked = allGendersChecked);
+            document.querySelectorAll('#genderMovies input[type="checkbox"]').forEach(elem => {
+                elem.checked = allGendersChecked;
+            });
         }
 
         function updateAllGenders() {
             const allChecked = [...document.querySelectorAll('#genderMovies input[type="checkbox"]')].every(elem => elem.checked);
             document.querySelector('#allGenders').checked = allChecked;
         }
-
 
         /* Para Años*/
         const fillYear = () => {
@@ -169,12 +186,19 @@
             }
         }
 
-        /* Me busca pero me aparece en un momento y se va. */
 
+        /* Me busca pero me aparece en un momento y se va. */
 
         fillSelect();
         fillGenders();
         fillYear();
+
+        const button = document.querySelector('#button');
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            seachMovies();
+        }
+        ); /* Version correcta */
     </script>
 
 </body>
