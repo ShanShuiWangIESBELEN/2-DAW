@@ -6,8 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.iesbelen.dao.*;
-import org.iesbelen.model.Fabricante;
 import org.iesbelen.model.Usuario;
 import org.iesbelen.utilities.Utility;
 
@@ -53,17 +53,13 @@ public class UsuariosServlet extends HttpServlet {
             //      /usuarios/crear/
             pathInfo = pathInfo.replaceAll("/$", "");
             String[] pathParts = pathInfo.split("/");
-
-            if (pathParts.length == 2 && "crear".equals(pathParts[1])) {
-                UsuarioDAO userDAO = new UsuarioDAOImpl();
-
-                // GET
+            if (pathParts.length == 2 && "login".equals(pathParts[1])) {
+                // GET /usuarios/login
+                dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/usuarios/login.jsp");
+            } else if (pathParts.length == 2 && "crear".equals(pathParts[1])) {
                 // /usuarios/crear
                 dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/usuarios/crear-usuario.jsp");
 
-
-            /*  List<Usuario> listaUsuario = userDAO.getAll();
-                request.setAttribute("listaUsuarios", listaUsuario);*/
             } else if (pathParts.length == 2) {
                 UsuarioDAO userDAO = new UsuarioDAOImpl();
                 // GET
@@ -107,11 +103,20 @@ public class UsuariosServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String pathInfo = request.getPathInfo();
         String __method__ = request.getParameter("__method__");
+        UsuarioDAO userDAO = new UsuarioDAOImpl();
 
-        if (__method__ == null) {
+        if ("/login".equals(pathInfo)) {
+            // Manejo del login
+            doLogin(request, response, userDAO);
+            return;
+        } else if ("/logout".equals(pathInfo)) {
+            // Manejo del logout
+            doLogout(request, response);
+            return;
+        } else if (__method__ == null) {
             // Crear un nuevo usuario
-            UsuarioDAO userDAO = new UsuarioDAOImpl();
             String usuario = request.getParameter("usuario");
             String password = request.getParameter("password");
             String rol = request.getParameter("rol");
@@ -125,7 +130,6 @@ public class UsuariosServlet extends HttpServlet {
             }
             nuevoUsuario.setRol(rol);
             userDAO.create(nuevoUsuario);
-
         } else if ("put".equalsIgnoreCase(__method__)) {
             // Actualizar un usuario existente
             doPut(request, response);
@@ -180,5 +184,37 @@ public class UsuariosServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+    private void doLogin(HttpServletRequest request, HttpServletResponse response, UsuarioDAO userDAO) throws ServletException, IOException {
+        String usuario = request.getParameter("usuario");
+        String password = request.getParameter("password");
+
+        Usuario user = userDAO.findByCredentials(usuario, password);
+        try {
+            if (user != null && Utility.hashPassword(password).equals(user.getPassword())) {
+                HttpSession session = request.getSession();
+                session.setAttribute("usuario-logado", user);
+                response.sendRedirect(request.getContextPath() + "/");
+            } else {
+                request.setAttribute("error", "Usuario o contraseña incorrectos.");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/usuarios/login.jsp");
+                dispatcher.forward(request, response);
+            }
+
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error en el sistema");
+        }
+    }
+
+    private void doLogout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+        if (session != null) {
+            session.invalidate();
+        }
+        response.sendRedirect(request.getContextPath() + "/");
+    }
+
 }
+
 

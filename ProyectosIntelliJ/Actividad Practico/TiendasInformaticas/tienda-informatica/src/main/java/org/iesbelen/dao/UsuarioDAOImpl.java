@@ -2,7 +2,9 @@ package org.iesbelen.dao;
 
 import org.iesbelen.model.Producto;
 import org.iesbelen.model.Usuario;
+import org.iesbelen.utilities.Utility;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -170,5 +172,47 @@ public class UsuarioDAOImpl extends AbstractDAOImpl implements UsuarioDAO {
             closeDb(conn, ps, rs);
         }
 
+    }
+
+    @Override
+    public Usuario findByCredentials(String usuario, String password) {
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Usuario user = null;
+
+        try {
+            conn = connectDB();
+            ps = conn.prepareStatement("SELECT * FROM USUARIOS WHERE usuario = ?");
+            ps.setString(1, usuario);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                user = new Usuario();
+                user.setIdUsuario(rs.getInt("idUsuario"));
+                user.setUsuario(rs.getString("usuario"));
+                user.setPassword(rs.getString("password"));
+                user.setRol(rs.getString("rol"));
+
+                try {
+                    String hashedPassword = Utility.hashPassword(password);
+                    if (!hashedPassword.equals(user.getPassword())) {
+                        // Si el hash no coincide, el usuario es inválido
+                        user = null;
+                    }
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                    user = null;
+                }
+            }
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            closeDb(conn, ps, rs);
+        }
+
+        return user;
     }
 }

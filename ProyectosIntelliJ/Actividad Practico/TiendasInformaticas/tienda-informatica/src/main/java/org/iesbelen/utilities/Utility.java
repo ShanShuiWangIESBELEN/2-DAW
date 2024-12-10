@@ -38,5 +38,23 @@ public class Utility {
         return hexString.toString();
 
     }
-
+/*   if (user != null) {
+                // Credenciales válidas: crear sesión y redirigir al home
+                HttpSession session = request.getSession(true);
+                session.setAttribute("usuario-logado", user);
+                response.sendRedirect(request.getContextPath() + "/");
+            } else {
+                request.setAttribute("error", "Usuario o contraseña incorrectos.");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/usuarios/login.jsp");
+                dispatcher.forward(request, response);
+            }
+            return; // Importante para evitar que el flujo continúe
+        } else if ("/logout".equals(pathInfo)) {
+            // Logout
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                session.invalidate();
+                response.sendRedirect(request.getContextPath() + "/");
+                return;
+            }*/
 }

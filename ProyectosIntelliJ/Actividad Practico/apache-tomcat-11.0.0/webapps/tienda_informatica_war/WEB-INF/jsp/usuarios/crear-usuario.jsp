@@ -11,6 +11,19 @@
             display: block;
             clear: both;
         }
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: rgb(143, 188, 192);
+            background: fixed linear-gradient(30deg, rgba(143, 188, 192, 1) 7%, rgba(220, 223, 218, 1) 36%, rgba(235, 230, 223, 1) 64%, rgba(143, 188, 192, 1) 88%);
+            padding: 0;
+        }
+
+        h1 {
+            color: rgb(134, 28, 51);
+            font-size: 40px;
+        }
     </style>
 </head>
 <body>
@@ -56,7 +69,11 @@
                 rol
             </div>
             <div style="float: none;width: auto;overflow: hidden;">
-                <input name="rol"/>
+                    <select name="rol">
+                        <option value="administrador">administrador</option>
+                        <option value="Vendedor">Vendedor</option>
+                        <option value="Trabajador">Trabajador</option>
+                </select>
             </div>
         </div>
 

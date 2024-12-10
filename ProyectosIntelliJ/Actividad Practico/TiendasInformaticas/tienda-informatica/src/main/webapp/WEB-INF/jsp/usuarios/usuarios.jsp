@@ -59,7 +59,7 @@
         </div>
         <div style="float: left;width: 19%"><%= user.getUsuario()%>
         </div>
-        <div style="float: left;width: 19%"><%= user.getPassword().substring(2, 6)%>
+        <div style="float: left;width: 19%"><%= user.getPassword().substring(2,5)%>
         </div>
         <div style="float: left;width: 19%"><%= user.getRol()%>
         </div>
@@ -77,7 +77,7 @@
                   style="display: inline;">
                 <input type="hidden" name="__method__" value="delete"/>
                 <input type="hidden" name="codigo" value="<%= user.getIdUsuario()%>"/>
-                <input type="submit" value="Eliminar"/>
+                <input type="submit" value="Eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario? Que despues me lloras')"/>
             </form>
         </div>
     </div>

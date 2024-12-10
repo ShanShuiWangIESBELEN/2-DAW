@@ -7,3 +7,5 @@
         @apply w-[450PX] h-[50px] bg-green-400 place-content-center rounded-lg text-red-500 font-bold border-2 border-green-600 text-4xl grid
     }
 }
+
+/* npx tailwindcss -i ./src/input.css -o ./src/output.css --watch */

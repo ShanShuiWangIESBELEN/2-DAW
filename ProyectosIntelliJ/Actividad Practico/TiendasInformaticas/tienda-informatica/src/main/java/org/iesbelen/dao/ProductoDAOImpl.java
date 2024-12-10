@@ -118,7 +118,7 @@ public class ProductoDAOImpl extends AbstractDAOImpl implements ProductoDAO{
         		prod.setIdProducto(rs.getInt(idx++));
         		prod.setNombre(rs.getString(idx++));
 				prod.setPrecio(rs.getDouble(idx++));
-				prod.setCodigo_fabricante(rs.getInt(idx++));
+				prod.setCodigo_fabricante(rs.getInt(idx));
         		
         		return Optional.of(prod);
         	}

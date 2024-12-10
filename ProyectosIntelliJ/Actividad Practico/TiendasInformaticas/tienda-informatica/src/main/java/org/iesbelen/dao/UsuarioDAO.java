@@ -16,6 +16,9 @@ public interface UsuarioDAO {
 
     public void delete(int idUsuario);
 
+    Usuario findByCredentials(String usuario, String password);
+
+
 
 
 }
