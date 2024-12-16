@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Usuario</title>
+    <link href="./output.css" rel="stylesheet">
+</head>
+
+<body class="bg-grey-100 flex items-center justify-center min-h-screen bg-[url('./img/claveSol.webp')]">
+
+    <!-- Modal -->
+    <div id="modal" class="bg-black bg-opacity-50 flex items-center justify-center">
+        <!-- Tarjeta -->
+        <div class="bg-white rounded-lg shadow-lg w-96 p-6 relative">
+            <!-- Formulario -->
+            <form>
+                <div class="mb-4">
+                    <label class="block text-yellow-700 font-semibold mb-1" for="name">Nombre completo:</label>
+                    <input type="text" id="name" placeholder="Nombre"
+                        class="w-full border border-yellow-300 px-3 py-2 rounded-md focus:border-yellow-500 focus:outline-none">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-yellow-700 font-semibold mb-1" for="email">Correo:</label>
+                    <input type="email" id="email" placeholder="Correo"
+                        class="w-full border border-yellow-300 px-3 py-2 rounded-md focus:border-yellow-500 focus:outline-none">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-yellow-700 font-semibold mb-1" for="confirmEmail">Repita correo:</label>
+                    <input type="email" id="confirmEmail" placeholder="Correo"
+                        class="w-full border border-yellow-300 px-3 py-2 rounded-md focus:border-yellow-500 focus:outline-none">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-yellow-700 font-semibold mb-1" for="password">Contraseña</label>
+                    <input type="password" id="password" placeholder="Contraseña"
+                        class="w-full border border-yellow-300 px-3 py-2 rounded-md focus:border-yellow-500 focus:outline-none">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-yellow-700 font-semibold mb-1" for="instrument">Instrumento musical</label>
+                    <select id="instrument"
+                        class="w-full border border-yellow-300 px-3 py-2 rounded-md focus:border-yellow-500 focus:outline-none">
+                        <option value="">Seleccione un instrumento</option>
+                        <option value="guitarra">Guitarra</option>
+                        <option value="piano">Piano</option>
+                        <option value="violín">Violín</option>
+                        <option value="batería">Batería</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <span class="block text-yellow-700 font-semibold mb-1">Sexo</span>
+                    <label class="inline-flex items-center mr-4">
+                        <input type="radio" name="gender" value="masculino" class="text-yellow-500">
+                        <span class="ml-2 text-yellow-700">Masculino</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="gender" value="femenino" class="text-yellow-500">
+                        <span class="ml-2 text-yellow-700">Femenino</span>
+                    </label>
+                </div>
+
+                <div class="mb-6">
+                    <label for="imagen" class="block text-yellow-700 font-semibold mb-1">Elija imagen:</label>
+                    <input type="file" id="imagen">
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-yellow-400 text-white py-2 rounded-md hover:bg-yellow-500 transition">
+                    Registrar
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
