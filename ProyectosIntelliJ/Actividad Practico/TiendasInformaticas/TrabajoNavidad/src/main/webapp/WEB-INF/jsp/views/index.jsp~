@@ -1,0 +1,28 @@
+<%@ page import="java.util.List" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inicio - Tienda Digital</title>
+</head>
+<body>
+<h1>Bienvenido a la Tienda Digital</h1>
+<h2>Categorías</h2>
+<ul>
+  <%
+    List<String> categorias = (List<String>) request.getAttribute("categorias");
+    if (categorias != null) {
+      for (String categoria : categorias) {
+  %>
+  <li><a href="categorias?categoria=<%=categoria%>"><%=categoria%></a></li>
+  <%
+    }
+  } else {
+  %>
+  <li>No hay categorías disponibles.</li>
+  <%
+    }
+  %>
+</ul>
+</body>
+</html>

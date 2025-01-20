@@ -1,34 +1,49 @@
 <%@ page import="org.iesbelen.model.Usuario" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Nav</title>
+    <title>Music Store Navigation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f4;
+        }
+
         #nav-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px;
-            background: rgba(143, 188, 192);
+            padding: 15px 30px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         #nav-bar ul {
             display: flex;
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         #nav-bar ul li {
-            margin: 0 15px;
+            margin: 0 20px;
         }
 
         #nav-bar ul li a {
             text-decoration: none;
-            color: blueviolet;
+            color: #ffffff;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        #nav-bar ul li a:hover {
+            color: #ffd700;
         }
 
         #login {
@@ -38,9 +53,38 @@
 
         #login a {
             text-decoration: none;
-            color: blueviolet;
+            color: #ffffff;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        #login a:hover {
+            color: #ffd700;
+        }
+
+        #nav-bar ul li i {
+            margin-right: 8px;
+        }
+
+        form span {
+            color: #ffffff;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        button[type="submit"] {
+            background: unset;
+            border: none;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            color: #ff4500;
         }
     </style>
 </head>
@@ -48,30 +92,36 @@
 <body>
 <nav id="nav-bar">
     <ul>
-        <li><a href="<%=application.getContextPath()%>/"><i class="fa-solid fa-house"></i>&nbsp;HOME</a></li>
-        <li><a href="<%=application.getContextPath()%>/tienda/fabricantes"><i class="fa-solid fa-industry"></i>&nbsp;Fabricantes</a></li>
-        <li><a href="<%=application.getContextPath()%>/tienda/productos"><i class="fa-brands fa-product-hunt"></i>&nbsp;Productos</a></li>
-        <li><a href="<%=application.getContextPath()%>/tienda/usuarios/"><i class="fa-solid fa-user"></i>&nbsp;Usuarios</a></li>
+        <li><a href="<%=application.getContextPath()%>/"><i class="fa-solid fa-house"></i> HOME</a></li>
+        <li><a href="<%=application.getContextPath()%>/categorias/"><i class="fa-solid fa-guitar"></i> Categorías</a>
+        </li>
+        <li><a href="<%=application.getContextPath()%>/productos/"><i class="fa-solid fa-music"></i> Productos</a></li>
+        <li><a href="<%=application.getContextPath()%>/usuarios/"><i class="fa-solid fa-user"></i> Usuarios</a></li>
+        <li><a href="<%=application.getContextPath()%>/pedidos/"><i class="fa-solid fa-list"></i> Pedidos</a></li>
+        <li><a href="<%=application.getContextPath()%>/carrito/"><i class="fa-solid fa-cart-shopping"></i> Carrito</a>
+        </li>
     </ul>
     <div id="login">
         <%
             Usuario usuarioLogado = (Usuario) request.getSession().getAttribute("usuario-logado");
             if (usuarioLogado != null) {
         %>
-        <form action="<%=application.getContextPath()%>/tienda/usuarios/logout" method="post" style="display:inline;">
+        <form action="<%=application.getContextPath()%>/usuarios/logout" method="post" style="display:inline;">
             <span>Bienvenido, <%= usuarioLogado.getUsuario() %>!</span>
-            <button type="submit" style="background:unset; border:none; color:blueviolet; font-size:20px; cursor:pointer;">
+            <button type="submit"
+                    style="background:unset; border:none; color:blueviolet; font-size:20px; cursor:pointer;">
                 <i class="fa-solid fa-right-from-bracket"></i>&nbsp;Logout
             </button>
         </form>
         <%
-          } else {
+        } else {
         %>
-        <a href="<%=application.getContextPath()%>/tienda/usuarios/login"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;LOGIN</a>
+        <a href="<%=application.getContextPath()%>/usuarios/login"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;LOGIN</a>
         <%
             }
         %>
     </div>
+
 </nav>
 
 </body>

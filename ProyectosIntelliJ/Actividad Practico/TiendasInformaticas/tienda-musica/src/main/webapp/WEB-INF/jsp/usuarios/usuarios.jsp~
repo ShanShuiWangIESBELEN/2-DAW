@@ -1,0 +1,173 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+<%@page import="org.iesbelen.model.Usuario" %>
+<%@page import="java.util.List" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Usuarios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, rgba(143, 188, 192, 1) 10%, rgba(220, 223, 218, 1) 60%);
+        }
+
+        #contenedora {
+            margin: 20px auto;
+            max-width: 900px;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #134E5E;
+            margin-bottom: 20px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #dddddd;
+            margin: 20px 0;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .header-buttons {
+            text-align: right;
+        }
+
+        .header-buttons form {
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .header-buttons input[type="submit"] {
+            background: #134E5E;
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-buttons input[type="submit"]:hover {
+            background: #11606C;
+        }
+
+        .user-list {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            padding: 10px 0;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .user-list:last-child {
+            border-bottom: none;
+        }
+
+        .user-list div {
+            flex: 1;
+            text-align: center;
+        }
+
+        .actions {
+            text-align: center;
+            flex: 2;
+        }
+
+        .actions form {
+            display: inline-block;
+        }
+
+        .actions input[type="submit"] {
+            background: #134E5E;
+            color: #ffffff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+            margin: 0 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .actions input[type="submit"]:hover {
+            background: #11606C;
+        }
+
+        .no-users {
+            text-align: center;
+            font-size: 16px;
+            color: #555555;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<%@ include file="/WEB-INF/jsp/fragmentos/header.jspf" %>
+<%@ include file="/WEB-INF/jsp/fragmentos/nav.jspf" %>
+
+<div id="contenedora">
+    <div class="clearfix">
+        <h1 style="float: left;">Usuarios</h1>
+        <div class="header-buttons" style="float: right;">
+            <form action="${pageContext.request.contextPath}/usuarios/crear">
+                <input type="submit" value="Crear Usuario">
+            </form>
+        </div>
+    </div>
+    <hr>
+    <div class="user-list header">
+        <div>ID</div>
+        <div>Usuario</div>
+        <div>Password</div>
+        <div>Rol</div>
+        <div class="actions">Acción</div>
+    </div>
+    <hr>
+    <%
+        List<Usuario> listaUsuarios = (List<Usuario>) request.getAttribute("listaUsuarios");
+        if (listaUsuarios != null && !listaUsuarios.isEmpty()) {
+            for (Usuario user : listaUsuarios) {
+    %>
+    <div class="user-list">
+        <div><%= user.getIdUsuario() %></div>
+        <div><%= user.getUsuario() %></div>
+        <div><%= user.getPassword().substring(2, 5) %></div>
+        <div><%= user.getRol() %></div>
+        <div class="actions">
+            <form action="${pageContext.request.contextPath}/usuarios/<%= user.getIdUsuario() %>" method="get">
+                <input type="submit" value="Ver Detalle">
+            </form>
+            <form action="${pageContext.request.contextPath}/usuarios/editar/<%= user.getIdUsuario() %>" method="get">
+                <input type="submit" value="Editar">
+            </form>
+            <form action="${pageContext.request.contextPath}/usuarios/borrar/" method="post">
+                <input type="hidden" name="__method__" value="delete">
+                <input type="hidden" name="codigo" value="<%= user.getIdUsuario() %>">
+                <input type="submit" value="Eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?')">
+            </form>
+        </div>
+    </div>
+    <%
+        }
+    } else {
+    %>
+    <div class="no-users">No hay registros de usuarios</div>
+    <% } %>
+</div>
+</body>
+</html>

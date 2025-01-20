@@ -1,0 +1,40 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista de Pedidos</title>
+</head>
+<body>
+<h1>Lista de Pedidos</h1>
+<table border="1">
+  <thead>
+  <tr>
+    <th>ID Pedido</th>
+    <th>ID Usuario</th>
+    <th>Fecha</th>
+    <th>Total</th>
+    <th>Acciones</th>
+  </tr>
+  </thead>
+  <tbody>
+  <c:forEach var="pedido" items="${listaPedidos}">
+    <tr>
+      <td>${pedido.idPedido}</td>
+      <td>${pedido.idUsuario}</td>
+      <td>${pedido.fecha}</td>
+      <td>${pedido.total}</td>
+      <td>
+        <a href="${pageContext.request.contextPath}/pedidos/${pedido.idPedido}">Ver Detalle</a> |
+        <a href="${pageContext.request.contextPath}/pedidos/editar/${pedido.idPedido}">Editar</a> |
+        <form action="${pageContext.request.contextPath}/pedidos/eliminar" method="post" style="display:inline;">
+          <input type="hidden" name="idPedido" value="${pedido.idPedido}">
+          <button type="submit">Eliminar</button>
+        </form>
+      </td>
+    </tr>
+  </c:forEach>
+  </tbody>
+</table>
+<a href="${pageContext.request.contextPath}/pedidos/crear">Crear Pedido</a>
+</body>
+</html>

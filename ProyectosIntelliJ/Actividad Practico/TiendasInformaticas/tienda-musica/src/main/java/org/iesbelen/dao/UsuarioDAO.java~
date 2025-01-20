@@ -1,0 +1,23 @@
+package org.iesbelen.dao;
+
+import org.iesbelen.model.Usuario;
+
+import java.sql.SQLException;
+import java.util.List;
+
+public interface UsuarioDAO {
+    List<Usuario> obtenerTodos() throws SQLException;
+
+    Usuario obtenerPorId(int id) throws SQLException;
+
+    Usuario obtenerPorEmail(String email) throws SQLException;
+
+    void insertar(Usuario usuario) throws SQLException;
+
+    void actualizar(Usuario usuario) throws SQLException;
+
+    void eliminar(int id) throws SQLException;
+
+    boolean existeEmail(String email) throws SQLException;
+    Usuario findByCredentials(String usuario, String password);
+}

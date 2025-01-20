@@ -176,7 +176,6 @@ public class UsuarioDAOImpl extends AbstractDAOImpl implements UsuarioDAO {
 
     @Override
     public Usuario findByCredentials(String usuario, String password) {
-
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -184,7 +183,7 @@ public class UsuarioDAOImpl extends AbstractDAOImpl implements UsuarioDAO {
 
         try {
             conn = connectDB();
-            ps = conn.prepareStatement("SELECT * FROM USUARIOS WHERE usuario = ?");
+            ps = conn.prepareStatement("SELECT * FROM usuarios WHERE usuario = ?");
             ps.setString(1, usuario);
             rs = ps.executeQuery();
 
@@ -195,19 +194,14 @@ public class UsuarioDAOImpl extends AbstractDAOImpl implements UsuarioDAO {
                 user.setPassword(rs.getString("password"));
                 user.setRol(rs.getString("rol"));
 
-                try {
-                    String hashedPassword = Utility.hashPassword(password);
-                    if (!hashedPassword.equals(user.getPassword())) {
-                        // Si el hash no coincide, el usuario es inválido
-                        user = null;
-                    }
-                } catch (NoSuchAlgorithmException e) {
-                    e.printStackTrace();
-                    user = null;
+                // Comparar la contraseña hash
+                String hashedPassword = Utility.hashPassword(password);
+                if (!hashedPassword.equals(user.getPassword())) {
+                    user = null; // Si no coincide, el usuario no es válido
                 }
             }
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             closeDb(conn, ps, rs);
@@ -215,4 +209,5 @@ public class UsuarioDAOImpl extends AbstractDAOImpl implements UsuarioDAO {
 
         return user;
     }
+
 }

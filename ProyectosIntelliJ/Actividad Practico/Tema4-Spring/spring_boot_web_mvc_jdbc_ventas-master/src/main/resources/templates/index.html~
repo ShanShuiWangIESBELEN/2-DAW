@@ -1,0 +1,16 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+
+<div class="container">
+    <h1>Inicio</h1>
+    <button><a th:href="@{/clientes}">Clientes</a></button>
+    <button><a th:href="@{/comercial}">Comercial</a></button>
+</div>
+</body>
+</html>
