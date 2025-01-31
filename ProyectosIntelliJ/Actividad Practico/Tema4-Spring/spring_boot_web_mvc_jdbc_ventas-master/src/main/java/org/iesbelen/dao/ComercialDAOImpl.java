@@ -66,35 +66,40 @@ public class ComercialDAOImpl implements ComercialDAO {
 
     @Override
     public Optional<Comercial> find(int id) {
-        Comercial fab = jdbcTemplate.queryForObject("SELECT * FROM comercial WHERE id=?",
-                (rs, rowNum) -> new Comercial(
-                        rs.getInt("id"),
-                        rs.getString("nombre"),
-                        rs.getString("apellido1"),
-                        rs.getString("apellido2"),
-                        rs.getFloat("comisión"))
-                , id
-        );
 
+        Comercial fab =  jdbcTemplate
+                .queryForObject("SELECT * FROM comercial WHERE id = ?"
+                        , (rs, rowNum) -> new Comercial(rs.getInt("id"),
+                                rs.getString("nombre"),
+                                rs.getString("apellido1"),
+                                rs.getString("apellido2"),
+                                rs.getFloat("comisión"))
+                        , id
+                );
 
-        return Optional.empty();
+        if (fab != null) {
+            return Optional.of(fab);}
+        else {
+            log.info("Comercial no encontrado.");
+            return Optional.empty(); }
+
     }
 
     @Override
-    public void update(Comercial cliente) {
+    public void update(Comercial comercial) {
 
         int rows = jdbcTemplate.update("""
                         UPDATE comercial SET 
                                     nombre = ?, 
                                     apellido1 = ?, 
                                     apellido2 = ?, 
-                                    comision = ?  
+                                    comisión = ?  
                             WHERE id = ?
-                        """, cliente.getNombre()
-                , cliente.getApellido1()
-                , cliente.getApellido2()
-                , cliente.getComision()
-                , cliente.getId());
+                        """, comercial.getNombre()
+                , comercial.getApellido1()
+                , comercial.getApellido2()
+                , comercial.getComision()
+                , comercial.getId());
 
         log.info("Update de Comercial con {} registros actualizados.", rows);
 
@@ -104,7 +109,7 @@ public class ComercialDAOImpl implements ComercialDAO {
     @Override
     public void delete(long id) {
 
-        int rows = jdbcTemplate.update("DELETE FROM comercial WHERE id=?",id);
+        int rows = jdbcTemplate.update("DELETE FROM comercial WHERE id=?", id);
         log.info("Delete de Comercial con {} registros eliminados.", rows);
     }
 

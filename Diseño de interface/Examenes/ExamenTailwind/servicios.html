@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        azulado: '#1f64e5',
+                        morado: '#712c76',
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="bg-[url('fondo.jpg')] bg-cover text-gray-800 flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-azulado to-morado text-white flex justify-between items-center p-4">
+      <div class="flex items-center">
+        <img src="barco.jpg" class="w-12 h-12 rounded-full transition-transform hover:scale-110 hover:cursor-pointer" alt="Logo">
+      </div>
+      <nav>
+        <ul class="flex space-x-4">
+          <li><a href="Amejorar.html" class="hover:underline">Inicio</a></li>
+          <li><a href="servicios.html" class="hover:underline">Servicios</a></li>
+          <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+    <!-- Servicios -->
+    <section id="servicios" class="py-16 flex-grow">
+        <h2 class="text-3xl font-bold text-center mb-8 text-morado">Bienvenido a bordo</h2>
+        <h3 class="text-3xl font-bold underline text-azulado mb-4">Elige barco:</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 px-4">
+            <div
+                class="bg-azulado text-orange-500 font-bold p-6 rounded-lg text-center transition-transform hover:scale-105">
+                VELERO
+            </div>
+            <div id="yate" class="bg-morado text-orange-500 font-bold p-6 rounded-lg text-center transition-transform hover:translate-x-24 hover:translate-y-12">YATE</div>
+            <div
+                class="bg-azulado text-orange-500 font-bold p-6 rounded-lg text-center transition-transform hover:scale-105">
+                CATAMARÁN
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-4">
+        <p>&copy; 2025 Shanshui Wang. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>

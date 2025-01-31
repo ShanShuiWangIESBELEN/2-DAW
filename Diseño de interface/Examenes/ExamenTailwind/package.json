@@ -1,0 +1,15 @@
+{
+  
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17"
+  },
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./styles.css -o ./dist/output.css --watch"
+  }
+}

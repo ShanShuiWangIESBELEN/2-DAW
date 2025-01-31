@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* 
+@layer components {
+    .rectangulo {
+        @apply bg-azulado text-orange-500 font-bold p-6 rounded-lg text-center transition-transform hover:scale-105
+    }
+        No me funciona
+} */

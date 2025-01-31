@@ -30,7 +30,7 @@ public class 	SpringBootWebMvcJdbcVentasApplication implements CommandLineRunner
 	
 	@Override
 	public void run(String... args) throws Exception {
-		log.info("*******************************");
+	/*	log.info("*******************************");
 		log.info("*Prueba de arranque ClienteDAO*");
 		log.info("*******************************");
 		
@@ -124,7 +124,7 @@ public class 	SpringBootWebMvcJdbcVentasApplication implements CommandLineRunner
 		log.info("************************************");
 		log.info("*FIN: Prueba de arranque ComercialDAO*");
 		log.info("************************************");
-
+*/
 
 
 	}
